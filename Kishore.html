@@ -2,831 +2,249 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kishore // Classified File</title>
+<title>Kishore — Namma Pasanga™</title>
 
 <style>
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-:root {
-    --bg: #07090d;
-    --panel: #11151c;
-    --panel2: #171c24;
-    --border: #29313d;
-
-    --text: #f2f5f8;
-    --muted: #8995a5;
-
-    --red: #ff4d5a;
-    --yellow: #ffd166;
-    --green: #5cff9d;
-    --blue: #6ea8ff;
 }
 
 body {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    background:
-        radial-gradient(
-            circle at 50% -10%,
-            #202735 0%,
-            transparent 45%
-        ),
-        var(--bg);
-
-    color: var(--text);
-
-    min-height: 100vh;
-
-    line-height: 1.5;
+    margin: 0;
+    background: #008080;
+    color: #000080;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
 }
 
-.container {
-
-    width:
-        min(
-            900px,
-            calc(100% - 28px)
-        );
-
-    margin: auto;
-
-    padding:
-        20px
-        0
-        70px;
+.wrapper {
+    width: min(950px, calc(100% - 10px));
+    margin: 5px auto;
+    background: #c0c0c0;
+    border: 4px ridge #ffffff;
+    padding: 7px;
 }
 
-
-/* TOP BAR */
-
-.topbar {
-
-    display: flex;
-
-    justify-content:
-        space-between;
-
-    align-items:
-        center;
-
-    border:
-        1px solid
-        var(--border);
-
-    background:
-        rgba(
-            17,
-            21,
-            28,
-            .9
-        );
-
-    padding:
-        11px
-        14px;
-
-    border-radius:
-        10px;
-
-    color:
-        var(--muted);
-
-    font-size:
-        10px;
-
-    letter-spacing:
-        1px;
-
-    margin-bottom:
-        25px;
-}
-
-.live {
-    color: var(--green);
-}
-
-
-/* BACK */
-
-.back {
-
-    display:
-        inline-block;
-
-    color:
-        var(--muted);
-
-    text-decoration:
-        none;
-
-    font-size:
-        12px;
-
-    margin-bottom:
-        30px;
-}
-
-.back:hover {
+.titlebar {
+    background: #000080;
     color: white;
+    padding: 10px;
+    border: 2px outset white;
 }
 
-
-/* HERO */
-
-.hero {
-
-    text-align:
-        center;
-
-    margin-bottom:
-        35px;
+.titlebar h1 {
+    margin: 0;
+    font-size: clamp(22px, 6vw, 38px);
 }
 
-.classified {
-
-    display:
-        inline-block;
-
-    color:
-        var(--red);
-
-    border:
-        1px solid
-        rgba(
-            255,
-            77,
-            90,
-            .35
-        );
-
-    background:
-        rgba(
-            255,
-            77,
-            90,
-            .08
-        );
-
-    padding:
-        7px
-        13px;
-
-    border-radius:
-        999px;
-
-    font-size:
-        10px;
-
-    letter-spacing:
-        1.5px;
-
-    margin-bottom:
-        18px;
+.titlebar p {
+    margin: 5px 0 0;
+    font-size: 12px;
 }
 
-h1 {
-
-    font-size:
-        clamp(
-            45px,
-            10vw,
-            78px
-        );
-
-    line-height:
-        .9;
-
-    letter-spacing:
-        -4px;
-
-    margin-bottom:
-        15px;
+.nav {
+    margin: 8px 0;
 }
 
-h1 span {
-    color: var(--red);
+.nav a {
+    display: inline-block;
+    padding: 7px 11px;
+    margin: 2px;
+    background: #c0c0c0;
+    color: black;
+    border: 3px outset white;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.hero p {
-
-    color:
-        var(--muted);
-
-    font-size:
-        14px;
+.nav a:active {
+    border-style: inset;
 }
 
-
-/* SUBJECT */
-
-.subject {
-
-    background:
-        var(--panel);
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        16px;
-
-    padding:
-        23px;
-
-    margin-bottom:
-        20px;
+.marquee {
+    background: yellow;
+    color: red;
+    border: 2px solid black;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: bold;
 }
 
-.subject-top {
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    gap:
-        20px;
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll 14s linear infinite;
 }
 
-.subject-id {
-
-    color:
-        var(--muted);
-
-    font-size:
-        10px;
-
-    letter-spacing:
-        1px;
-}
-
-.subject-name {
-
-    font-size:
-        30px;
-
-    font-weight:
-        bold;
-
-    margin-top:
-        4px;
-}
-
-.subject-title {
-
-    color:
-        var(--muted);
-
-    font-size:
-        13px;
-}
-
-.stamp {
-
-    border:
-        2px solid
-        var(--red);
-
-    color:
-        var(--red);
-
-    padding:
-        7px
-        11px;
-
-    height:
-        max-content;
-
-    transform:
-        rotate(-4deg);
-
-    font-size:
-        10px;
-
-    font-weight:
-        bold;
-
-    letter-spacing:
-        1px;
-}
-
-
-/* DETAILS */
-
-.details {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(
-            3,
-            1fr
-        );
-
-    gap:
-        10px;
-
-    margin-top:
-        20px;
-}
-
-.detail {
-
-    background:
-        var(--panel2);
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        10px;
-
-    padding:
-        13px;
-}
-
-.detail-label {
-
-    color:
-        var(--muted);
-
-    font-size:
-        9px;
-
-    letter-spacing:
-        1px;
-}
-
-.detail-value {
-
-    font-weight:
-        bold;
-
-    margin-top:
-        4px;
-
-    font-size:
-        14px;
-}
-
-
-/* SECTION TITLE */
-
-.section-title {
-
-    color:
-        var(--muted);
-
-    font-size:
-        11px;
-
-    letter-spacing:
-        1.5px;
-
-    margin:
-        30px
-        0
-        12px;
-}
-
-
-/* STATS */
-
-.stats {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(
-            2,
-            1fr
-        );
-
-    gap:
-        12px;
-}
-
-.stat {
-
-    background:
-        var(--panel);
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        14px;
-
-    padding:
-        20px;
-}
-
-.stat-label {
-
-    color:
-        var(--muted);
-
-    font-size:
-        10px;
-
-    letter-spacing:
-        1px;
-}
-
-.stat-value {
-
-    font-size:
-        29px;
-
-    font-weight:
-        bold;
-
-    margin:
-        5px 0;
-}
-
-.stat-description {
-
-    color:
-        var(--muted);
-
-    font-size:
-        12px;
-}
-
-.red {
-    color: var(--red);
-}
-
-.yellow {
-    color: var(--yellow);
-}
-
-.green {
-    color: var(--green);
-}
-
-
-/* JUICE METER */
-
-.meter-box {
-
-    background:
-        var(--panel);
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        15px;
-
-    padding:
-        20px;
-}
-
-.meter-top {
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    font-size:
-        12px;
-
-    margin-bottom:
-        10px;
-}
-
-.meter {
-
-    width:
-        100%;
-
-    height:
-        12px;
-
-    background:
-        #252c36;
-
-    border-radius:
-        20px;
-
-    overflow:
-        hidden;
-}
-
-.meter-fill {
-
-    width:
-        100%;
-
-    height:
-        100%;
-
-    background:
-        var(--yellow);
-
-    animation:
-        pulse 1.5s infinite alternate;
-}
-
-@keyframes pulse {
-
+@keyframes scroll {
     from {
-        opacity: .65;
+        transform: translateX(0);
     }
 
     to {
-        opacity: 1;
+        transform: translateX(-100%);
     }
-
 }
 
-
-/* INCIDENT */
-
-.incident {
-
-    background:
-        var(--panel);
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        15px;
-
-    overflow:
-        hidden;
+.warning {
+    background: #ffff00;
+    color: #ff0000;
+    border: 2px solid #000000;
+    padding: 7px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
-.incident-row {
-
-    padding:
-        20px;
-
-    border-bottom:
-        1px solid
-        var(--border);
+.hero {
+    background: white;
+    border: 3px inset white;
+    text-align: center;
+    padding: 20px 12px;
+    margin-top: 10px;
 }
 
-.incident-row:last-child {
-    border-bottom: none;
+.profile-image {
+    width: 220px;
+    height: 220px;
+    margin: auto;
+    background: #808080;
+    border: 4px inset white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
 }
 
-.incident-label {
-
-    color:
-        var(--red);
-
-    font-size:
-        10px;
-
-    letter-spacing:
-        1px;
-
-    margin-bottom:
-        7px;
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.incident-title {
-
-    font-size:
-        18px;
-
-    font-weight:
-        bold;
-
-    margin-bottom:
-        10px;
+.hero h2 {
+    font-size: clamp(28px, 7vw, 45px);
+    color: #ff00ff;
+    text-shadow: 2px 2px cyan;
+    margin: 15px 0 5px;
 }
 
-.quote {
-
-    background:
-        var(--panel2);
-
-    border-left:
-        3px solid
-        var(--yellow);
-
-    padding:
-        14px;
-
-    border-radius:
-        0
-        8px
-        8px
-        0;
-
-    font-size:
-        13px;
+.section-title {
+    background: #000080;
+    color: white;
+    padding: 7px;
+    margin-top: 12px;
+    border: 2px outset white;
+    font-weight: bold;
 }
 
-
-/* SIMULATOR */
-
-.simulator {
-
-    background:
-        var(--panel);
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        15px;
-
-    padding:
-        22px;
-
-    text-align:
-        center;
+.box {
+    background: white;
+    border: 3px inset white;
+    padding: 15px;
 }
 
-.simulator h3 {
-    margin-bottom: 8px;
+.big-number {
+    font-size: 28px;
+    color: red;
+    font-weight: bold;
 }
 
-.simulator p {
-
-    color:
-        var(--muted);
-
-    font-size:
-        12px;
-
-    margin-bottom:
-        18px;
+.stat {
+    margin: 14px 0;
 }
 
-button {
-
-    border:
-        1px solid
-        var(--border);
-
-    background:
-        var(--panel2);
-
-    color:
-        var(--text);
-
-    padding:
-        13px
-        18px;
-
-    border-radius:
-        10px;
-
-    cursor:
-        pointer;
-
-    font-size:
-        13px;
-
-    transition:
-        .2s;
+.bar {
+    height: 18px;
+    background: #808080;
+    border: 2px inset white;
+    margin-top: 4px;
 }
 
-button:hover {
-
-    background:
-        #202733;
-
-    transform:
-        translateY(-2px);
+.fill {
+    height: 100%;
+    background: #0000ff;
 }
 
-#simulationResult {
-
-    margin-top:
-        20px;
-
-    color:
-        var(--muted);
-
-    min-height:
-        25px;
-
+.meme {
+    background: #ffffcc;
+    border: 3px outset white;
+    padding: 15px;
+    margin-bottom: 12px;
 }
 
-
-/* EVIDENCE */
-
-.evidence {
-
-    display:
-        grid;
-
-    place-items:
-        center;
-
-    min-height:
-        180px;
-
-    text-align:
-        center;
-
-    border:
-        1px dashed
-        #3a4554;
-
-    border-radius:
-        15px;
-
-    color:
-        var(--muted);
-
-    padding:
-        25px;
+.meme h3 {
+    color: red;
+    margin-top: 0;
 }
 
-.evidence-icon {
-
-    font-size:
-        40px;
-
-    margin-bottom:
-        10px;
+.meme-text {
+    font-size: 16px;
+    font-weight: bold;
 }
 
-
-/* FOOTER */
-
-footer {
-
-    text-align:
-        center;
-
-    margin-top:
-        45px;
-
-    color:
-        #596474;
-
-    font-size:
-        10px;
+.reaction {
+    height: 180px;
+    background: #808080;
+    border: 3px inset white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 12px;
+    overflow: hidden;
 }
 
+.reaction img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-/* MOBILE */
+.guestbook {
+    background: white;
+    border: 3px inset white;
+    padding: 12px;
+}
 
-@media (
-    max-width: 600px
-) {
+.message {
+    background: #eeeeee;
+    border: 2px groove white;
+    padding: 10px;
+    margin: 7px 0;
+}
 
-    .details {
+.message strong {
+    color: purple;
+}
 
-        grid-template-columns:
-            1fr;
+.footer {
+    text-align: center;
+    padding: 20px 5px 10px;
+    font-size: 12px;
+}
 
-    }
+.visitor {
+    display: inline-block;
+    background: black;
+    color: #00ff00;
+    padding: 4px 7px;
+    letter-spacing: 2px;
+}
 
-    .stats {
+@media(max-width:600px) {
 
-        grid-template-columns:
-            1fr;
-
-    }
-
-    .subject-top {
-
-        flex-direction:
-            column;
-
-    }
-
-    .stamp {
-
-        align-self:
-            flex-start;
-
+    .profile-image {
+        width: 180px;
+        height: 180px;
     }
 
 }
@@ -838,125 +256,139 @@ footer {
 
 <body>
 
-
-<div class="container">
-
-
-<div class="topbar">
-
-    <span>
-        THE BOYS DATABASE™ // FILE #001
-    </span>
-
-    <span class="live">
-        ● CLASSIFIED
-    </span>
-
-</div>
+<div class="wrapper">
 
 
-<a
-    href="index.html"
-    class="back"
->
-    ← Back to The Boys Database
-</a>
+<!-- HEADER -->
 
-
-<header class="hero">
-
-    <div class="classified">
-        🚨 CLASSIFIED SUBJECT FILE
-    </div>
+<div class="titlebar">
 
     <h1>
-        KISHORE<br>
-        <span>🇦🇺 AUSTRALIAN</span>
+        ★ KISHORE'S FILE ★
     </h1>
 
     <p>
-        Successfully exported from Tamil Nadu.
+        THE BOYS DATABASE™ // SUBJECT #001
     </p>
 
-</header>
+</div>
 
 
-<!-- SUBJECT -->
+<!-- NAVIGATION -->
 
-<section class="subject">
+<div class="nav">
 
+    <a href="index.html">
+        🏠 HOME
+    </a>
 
-<div class="subject-top">
-
-
-<div>
-
-    <div class="subject-id">
-        SUBJECT #001
-    </div>
-
-    <div class="subject-name">
-        Kishore
-    </div>
-
-    <div class="subject-title">
-        (Australian)
-    </div>
+    <a href="Kishore.html">
+        🇦🇺 KISHORE
+    </a>
 
 </div>
 
 
-<div class="stamp">
-    EXPORTED
-</div>
+<!-- NEWS -->
 
+<div class="marquee">
 
-</div>
-
-
-<div class="details">
-
-
-<div class="detail">
-
-    <div class="detail-label">
-        ORIGIN
-    </div>
-
-    <div class="detail-value">
-        Tamil Nadu 🇮🇳
-    </div>
+    <span>
+        🚨 BREAKING: KISHORE HAS BEEN EXPORTED TO AUSTRALIA 🇦🇺
+        &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+        🧃 KOVILPATTI JUICE KADAI SALES 📈📈📈
+        &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+        🍗 NIGHT FOOD OPERATIONS CONTINUE
+    </span>
 
 </div>
 
 
-<div class="detail">
+<!-- WARNING -->
 
-    <div class="detail-label">
-        CURRENT LOCATION
-    </div>
+<div class="warning">
 
-    <div class="detail-value">
-        Australia 🇦🇺
-    </div>
+    🚨 IMPORTANT NOTICE 🚨
 
-</div>
+    <br>
 
-
-<div class="detail">
-
-    <div class="detail-label">
-        THREAT LEVEL
-    </div>
-
-    <div class="detail-value red">
-        QUESTIONABLE
-    </div>
+    Subject is known to stop bikes
+    whenever a juice shop is spotted.
 
 </div>
 
 
+<!-- PROFILE -->
+
+<section class="hero">
+
+
+<div class="profile-image">
+
+    <!--
+    IMAGE SLOT
+
+    Upload:
+    images/kishore-profile.jpg
+
+    Then replace this placeholder with:
+
+    <img
+        src="images/kishore-profile.jpg"
+        alt="Kishore"
+    >
+    -->
+
+    📸
+
+    <br>
+
+    KISHORE PHOTO
+
+    <br>
+
+    <small>
+        (funny photo preferred)
+    </small>
+
 </div>
+
+
+<h2>
+    KISHORE 🇦🇺
+</h2>
+
+
+<strong>
+    (Australian)
+</strong>
+
+
+<p>
+
+    Kovilpatti 🇮🇳
+
+    →
+
+    Australia 🇦🇺
+
+</p>
+
+
+<p>
+
+    Successfully exported.
+
+    <br>
+
+    Return status:
+
+    <strong>
+        Unknown.
+    </strong>
+
+</p>
+
 
 </section>
 
@@ -964,59 +396,30 @@ footer {
 <!-- STATISTICS -->
 
 <div class="section-title">
-    SUBJECT STATISTICS
-</div>
 
-
-<section class="stats">
-
-
-<div class="stat">
-
-    <div class="stat-label">
-        🍗 NIGHT FOOD CONSUMPTION
-    </div>
-
-    <div class="stat-value">
-        ∞
-    </div>
-
-    <div class="stat-description">
-        "Dei sapda polama?"
-    </div>
+    📊 KISHORE SCIENTIFIC STATISTICS
 
 </div>
 
 
+<section class="box">
+
+
 <div class="stat">
 
-    <div class="stat-label">
-        🧃 JUICE SHOP DETECTION
-    </div>
+    🧃 Juice kadai detection:
 
-    <div class="stat-value yellow">
+    <span class="big-number">
         100%
-    </div>
+    </span>
 
-    <div class="stat-description">
-        Juice kadai spotted = bike stops.
-    </div>
+    <div class="bar">
 
-</div>
+        <div
+            class="fill"
+            style="width:100%"
+        ></div>
 
-
-<div class="stat">
-
-    <div class="stat-label">
-        📢 RANDOM SCREAM PROBABILITY
-    </div>
-
-    <div class="stat-value red">
-        99.9%
-    </div>
-
-    <div class="stat-description">
-        Nearby civilians are advised to remain calm.
     </div>
 
 </div>
@@ -1024,16 +427,59 @@ footer {
 
 <div class="stat">
 
-    <div class="stat-label">
-        💨 UNEXPECTED BURP FREQUENCY
-    </div>
+    🍗 Night food requirement:
 
-    <div class="stat-value red">
+    <span class="big-number">
         ∞
+    </span>
+
+    <div class="bar">
+
+        <div
+            class="fill"
+            style="width:100%"
+        ></div>
+
     </div>
 
-    <div class="stat-description">
-        Scientists have stopped measuring.
+</div>
+
+
+<div class="stat">
+
+    🏍️ Random scream probability:
+
+    <span class="big-number">
+        99.9%
+    </span>
+
+    <div class="bar">
+
+        <div
+            class="fill"
+            style="width:99%"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<div class="stat">
+
+    💨 Unexpected sound effects:
+
+    <span class="big-number">
+        CLASSIFIED
+    </span>
+
+    <div class="bar">
+
+        <div
+            class="fill"
+            style="width:100%"
+        ></div>
+
     </div>
 
 </div>
@@ -1042,290 +488,385 @@ footer {
 </section>
 
 
-<!-- JUICE METER -->
+<!-- JUICE -->
 
 <div class="section-title">
-    🧃 JUICE ADDICTION MONITOR
-</div>
 
-
-<section class="meter-box">
-
-<div class="meter-top">
-
-    <span>
-        CURRENT JUICE THREAT
-    </span>
-
-    <strong class="yellow">
-        CRITICAL
-    </strong>
+    🧃 KOVILPATTI JUICE KADAI ECONOMICS
 
 </div>
 
 
-<div class="meter">
+<section class="box">
 
-    <div class="meter-fill"></div>
 
-</div>
+<p class="meme-text">
+
+    Juice kadai sales after
+    Kishore vandhadhuku apram:
+
+</p>
 
 
 <p
 style="
-color:var(--muted);
-font-size:12px;
-margin-top:12px;
+font-size:30px;
+margin:12px 0;
 "
 >
 
-Already drank 2–3 juices?
-
-<br>
-
-**Doesn't matter.**
-
-<br><br>
-
-If another juice shop appears:
-
-<br>
-
-<strong style="color:white;">
-"Dei niruthra!"
-</strong>
-
-🧃
+    📈📈📈📈📈📈📈
 
 </p>
 
-</section>
-
-
-<!-- INCIDENTS -->
-
-<div class="section-title">
-    📂 INCIDENT REPORTS
-</div>
-
-
-<section class="incident">
-
-
-<div class="incident-row">
-
-    <div class="incident-label">
-        INCIDENT #001 // JUICE
-    </div>
-
-    <div class="incident-title">
-        The Juice Shop Problem
-    </div>
-
-    <div class="quote">
-
-        <strong>Kishore:</strong>
-        "Dei niruthra! Juice shop!"
-
-        <br><br>
-
-        <strong>Group:</strong>
-        "Dei already 2-3 juice kudichitiya da!"
-
-        <br><br>
-
-        <strong>Kishore:</strong>
-        "Adhu vera... idhu vera." 🧃
-
-    </div>
-
-</div>
-
-
-<div class="incident-row">
-
-    <div class="incident-label">
-        INCIDENT #002 // NIGHT
-    </div>
-
-    <div class="incident-title">
-        The Midnight Food Operation
-    </div>
-
-    <div class="quote">
-
-        🕚 <strong>Time:</strong>
-        Late night.
-
-        <br><br>
-
-        Everyone:
-
-        <br>
-
-        "Thoongalama?"
-
-        <br><br>
-
-        Kishore:
-
-        <br>
-
-        <strong>
-            "Dei sapda polama?"
-        </strong>
-
-        🍗
-
-        <br><br>
-
-        Investigation result:
-
-        <strong>
-            Nobody was surprised.
-        </strong>
-
-    </div>
-
-</div>
-
-
-<div class="incident-row">
-
-    <div class="incident-label">
-        INCIDENT #003 // BIKE
-    </div>
-
-    <div class="incident-title">
-        The Unidentified Scream
-    </div>
-
-    <div class="quote">
-
-        Peaceful bike ride. 🏍️
-
-        <br><br>
-
-        Birds singing.
-
-        <br>
-
-        Road completely normal.
-
-        <br><br>
-
-        Suddenly:
-
-        <br><br>
-
-        <strong style="font-size:20px;">
-            "AAAAAAAAAAAA—"
-        </strong>
-
-        📢
-
-        <br><br>
-
-        Nearby people:
-
-        😳
-
-        <br><br>
-
-        Driver:
-
-        😐
-
-        <br><br>
-
-        Kishore:
-
-        😌
-
-    </div>
-
-</div>
-
-
-<div class="incident-row">
-
-    <div class="incident-label">
-        INCIDENT #004 // SOUND EFFECT
-    </div>
-
-    <div class="incident-title">
-        The Unexpected Burp
-    </div>
-
-    <div class="quote">
-
-        🚨 SOUND DETECTED 🚨
-
-        <br><br>
-
-        Group:
-
-        <strong>
-            "Dei enna da adhu?!"
-        </strong>
-
-        <br><br>
-
-        Nearby civilian:
-
-        😳
-
-        <br><br>
-
-        Investigation concluded:
-
-        <br>
-
-        <strong>
-            Kishore.
-        </strong>
-
-        <br><br>
-
-        Case closed.
-
-    </div>
-
-</div>
-
-
-</section>
-
-
-<!-- SIMULATOR -->
-
-<div class="section-title">
-    🏍️ KISHORE BIKE RIDE SIMULATOR
-</div>
-
-
-<section class="simulator">
-
-<h3>
-    Start a completely normal bike ride.
-</h3>
 
 <p>
-    Nothing suspicious should happen.
-    Probably.
+
+    Normal people:
+
+    <br>
+
+    "Juice venuma?"
+
+    <br><br>
+
+    Kishore:
+
+    <br>
+
+    <strong>
+        Juice kadai paatha stop.
+    </strong>
+
+    🛑🏍️
+
 </p>
 
 
-<button
-onclick="startRide()"
->
-    🏍️ START BIKE RIDE
-</button>
+<div class="reaction">
 
+    <!--
+    IMAGE SLOT
 
-<div id="simulationResult">
+    Upload:
+    images/kishore-juice-reaction.jpg
+    -->
+
+    📸
+
+    <br>
+
+    JUICE REACTION IMAGE
 
 </div>
+
+
+</section>
+
+
+<!-- NIGHT FOOD -->
+
+<div class="section-title">
+
+    🍗 NIGHT FOOD DEPARTMENT
+
+</div>
+
+
+<section class="meme">
+
+
+<h3>
+    OPERATION: "SAPDA POLAMA?"
+</h3>
+
+
+<p>
+
+    🕚 11:30 PM
+
+</p>
+
+
+<p>
+
+    Everyone:
+
+    <br>
+
+    <strong>
+        "Thoongalama?"
+    </strong>
+
+</p>
+
+
+<p>
+
+    Kishore:
+
+    <br>
+
+    <strong>
+        "Dei sapda polama?"
+    </strong>
+
+    🍗
+
+</p>
+
+
+<p>
+
+    Everyone:
+
+    <br>
+
+    😐
+
+</p>
+
+
+<p>
+
+    Night food orders after Kishore:
+
+</p>
+
+
+<p
+style="
+font-size:28px;
+"
+>
+
+    📈📈📈📈📈
+
+</p>
+
+
+<div class="reaction">
+
+    <!--
+    IMAGE SLOT
+
+    Upload:
+    images/kishore-night-food.jpg
+    -->
+
+    📸
+
+    <br>
+
+    NIGHT FOOD REACTION IMAGE
+
+</div>
+
+
+</section>
+
+
+<!-- BIKE -->
+
+<div class="section-title">
+
+    🏍️ BIKE INCIDENT ARCHIVE
+
+</div>
+
+
+<section class="meme">
+
+
+<h3>
+    INCIDENT: EVERYTHING WAS NORMAL
+</h3>
+
+
+<p>
+
+    Bike:
+
+    🏍️
+
+</p>
+
+
+<p>
+
+    Road:
+
+    🛣️
+
+</p>
+
+
+<p>
+
+    Everyone:
+
+    😌
+
+</p>
+
+
+<p>
+
+    Kishore:
+
+</p>
+
+
+<p
+style="
+font-size:25px;
+font-weight:bold;
+"
+>
+
+    "AAAAAAAAAAAAAA—"
+
+</p>
+
+
+<p>
+
+    Nearby people:
+
+    <br>
+
+    😳📈📈📈
+
+</p>
+
+
+<p>
+
+    Driver:
+
+    😐
+
+</p>
+
+
+<p>
+
+    Kishore:
+
+    😌
+
+</p>
+
+
+<div class="reaction">
+
+    <!--
+    IMAGE SLOT
+
+    Upload:
+    images/kishore-scream-reaction.jpg
+
+    Tamil comedian reaction image
+    can go here.
+    -->
+
+    📸
+
+    <br>
+
+    TAMIL REACTION IMAGE
+
+</div>
+
+
+</section>
+
+
+<!-- BURP -->
+
+<div class="section-title">
+
+    💨 SOUND ENGINEERING DEPARTMENT
+
+</div>
+
+
+<section class="meme">
+
+
+<h3>
+    UNIDENTIFIED SOUND DETECTED
+</h3>
+
+
+<p>
+
+    Sound detected while travelling:
+
+</p>
+
+
+<p
+style="
+font-size:30px;
+"
+>
+
+    🚨 📢 💨
+
+</p>
+
+
+<p>
+
+    Nearby civilian:
+
+    <strong>
+        "Enna da satham?"
+    </strong>
+
+</p>
+
+
+<p>
+
+    Investigation:
+
+    <br>
+
+    🔎 🔎 🔎
+
+</p>
+
+
+<p>
+
+    Final answer:
+
+    <strong>
+        Kishore.
+    </strong>
+
+</p>
+
+
+<div class="reaction">
+
+    <!--
+    IMAGE SLOT
+
+    Upload:
+    images/kishore-burp-reaction.jpg
+    -->
+
+    📸
+
+    <br>
+
+    TAMIL REACTION IMAGE
+
+</div>
+
 
 </section>
 
@@ -1333,138 +874,171 @@ onclick="startRide()"
 <!-- EVIDENCE -->
 
 <div class="section-title">
-    📸 EVIDENCE ARCHIVE
+
+    📸 KISHORE PHOTO ARCHIVE
+
 </div>
 
 
-<section class="evidence">
+<section class="box">
 
-<div>
 
-    <div class="evidence-icon">
-        📂
-    </div>
+<p>
 
-    <h3>
-        EVIDENCE PENDING
-    </h3>
+    Official evidence collection:
 
-    <p
-    style="
-    margin-top:8px;
-    "
-    >
+</p>
 
-    Photographic evidence will be
-    uploaded here.
+
+<div class="reaction">
+
+    <!--
+    IMAGE SLOT
+
+    Upload future photos here.
+    -->
+
+    📂
 
     <br>
 
-    The investigation continues.
-
-    </p>
+    PHOTO ARCHIVE COMING SOON
 
 </div>
+
+
+<p style="margin-top:12px;">
+
+    More evidence will be uploaded
+    whenever someone finds their old photos.
+
+</p>
+
 
 </section>
 
 
-<footer>
+<!-- GUESTBOOK -->
 
-    THE BOYS DATABASE™
-    <br><br>
+<div class="section-title">
 
-    SUBJECT #001 // KISHORE
+    📖 KISHORE GUESTBOOK
+
+</div>
+
+
+<section class="guestbook">
+
+
+<div class="message">
+
+    <strong>
+        Anonymous:
+    </strong>
+
     <br>
 
-    Department of International Menace
+    "Australia pona apram juice kadai
+    miss pannuvaan pola."
 
-</footer>
+</div>
+
+
+<div class="message">
+
+    <strong>
+        Anonymous:
+    </strong>
+
+    <br>
+
+    "Bro Australia-la night food
+    enga kedaikum?" 😂
+
+</div>
+
+
+<div class="message">
+
+    <strong>
+        Website Admin:
+    </strong>
+
+    <br>
+
+    "Important question."
+
+</div>
+
+
+</section>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+
+<p>
+
+    👁️ YOU ARE VISITOR NUMBER
+
+</p>
+
+
+<div class="visitor">
+
+    000069
+
+</div>
+
+
+<p>
+
+    <br>
+
+    Subject #001:
+
+    <strong>
+        KISHORE
+    </strong>
+
+</p>
+
+
+<p>
+
+    Status:
+
+    🇮🇳 → 🇦🇺
+
+</p>
+
+
+<p>
+
+    🚧 Page still under construction 🚧
+
+</p>
+
+
+<br>
+
+
+<p>
+
+    © THE BOYS™
+    <br>
+
+    Namma pasanga official unofficial website
+
+</p>
 
 
 </div>
 
 
-<script>
-
-
-function startRide() {
-
-
-    const result =
-        document.getElementById(
-            "simulationResult"
-        );
-
-
-    result.innerHTML =
-        "🟢 Bike started...";
-
-
-    setTimeout(() => {
-
-        result.innerHTML =
-            "🟢 Road clear...";
-
-
-    }, 1200);
-
-
-    setTimeout(() => {
-
-        result.innerHTML =
-            "🟢 Everything normal...";
-
-
-    }, 2400);
-
-
-    setTimeout(() => {
-
-        result.innerHTML =
-            "🚨 JUICE SHOP DETECTED 🚨";
-
-
-    }, 3600);
-
-
-    setTimeout(() => {
-
-        result.innerHTML =
-            "Kishore: \"Dei niruthra!\" 🧃";
-
-
-    }, 4800);
-
-
-    setTimeout(() => {
-
-        result.innerHTML =
-            "📢 RANDOM SCREAM DETECTED<br><br>" +
-            "Nearby civilians: 😳<br>" +
-            "Driver: 😐<br>" +
-            "Kishore: 😌";
-
-
-    }, 6200);
-
-
-    setTimeout(() => {
-
-        result.innerHTML =
-            "💨 UNIDENTIFIED SOUND DETECTED<br><br>" +
-            "Investigation concluded:<br>" +
-            "<strong>Kishore.</strong><br><br>" +
-            "🏍️ Ride terminated.";
-
-
-    }, 8000);
-
-}
-
-
-</script>
-
+</div>
 
 </body>
 
