@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kishore // Classified File</title>
+    <title>THE BOYS DATABASE™</title>
 
     <style>
         * {
@@ -16,13 +16,14 @@
         :root {
             --bg: #080a0f;
             --panel: #11151d;
-            --panel2: #171c25;
+            --panel-hover: #171d27;
             --border: #29313d;
             --text: #f2f5f8;
             --muted: #8c98a8;
             --red: #ff4d5a;
             --green: #5cff9d;
             --yellow: #ffd166;
+            --blue: #6ea8ff;
         }
 
         body {
@@ -32,33 +33,36 @@
                 var(--bg);
             color: var(--text);
             min-height: 100vh;
-            line-height: 1.5;
         }
 
         .container {
-            width: min(920px, calc(100% - 30px));
+            width: min(950px, calc(100% - 30px));
             margin: auto;
-            padding: 35px 0 60px;
+            padding: 25px 0 60px;
         }
 
-        /* TOP SECRET BAR */
+        /* TOP BAR */
 
         .topbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 15px;
+
             border: 1px solid var(--border);
-            background: rgba(17, 21, 29, .85);
-            padding: 10px 14px;
+            background: rgba(17, 21, 29, 0.9);
+
+            padding: 11px 15px;
             border-radius: 10px;
-            font-size: 11px;
-            color: var(--muted);
+
+            font-size: 10px;
             letter-spacing: 1px;
-            margin-bottom: 35px;
+            color: var(--muted);
+
+            margin-bottom: 55px;
         }
 
-        .status {
+        .online {
             color: var(--green);
         }
 
@@ -66,26 +70,31 @@
 
         .hero {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .classified {
             display: inline-block;
+
             color: var(--red);
-            border: 1px solid rgba(255, 77, 90, .35);
-            background: rgba(255, 77, 90, .08);
-            padding: 7px 12px;
+
+            border: 1px solid rgba(255, 77, 90, 0.35);
+            background: rgba(255, 77, 90, 0.08);
+
+            padding: 7px 13px;
             border-radius: 999px;
-            font-size: 11px;
+
+            font-size: 10px;
             letter-spacing: 1.5px;
-            margin-bottom: 20px;
+
+            margin-bottom: 22px;
         }
 
         h1 {
-            font-size: clamp(38px, 9vw, 76px);
-            line-height: .95;
-            letter-spacing: -3px;
-            margin-bottom: 18px;
+            font-size: clamp(42px, 10vw, 80px);
+            line-height: 0.9;
+            letter-spacing: -4px;
+            margin-bottom: 20px;
         }
 
         h1 span {
@@ -93,576 +102,459 @@
         }
 
         .hero p {
-            color: var(--muted);
-            max-width: 600px;
+            max-width: 620px;
             margin: auto;
+            color: var(--muted);
+            font-size: 14px;
         }
 
-        /* FILE HEADER */
+        /* DATABASE HEADER */
 
-        .file-header {
+        .database-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            border-bottom: 1px solid var(--border);
+
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+
+        .database-header h2 {
+            font-size: 13px;
+            letter-spacing: 1.5px;
+        }
+
+        .database-header span {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        /* MEMBERS */
+
+        .members {
             display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .member {
+            position: relative;
+
             border: 1px solid var(--border);
             background: var(--panel);
+
             border-radius: 16px;
             padding: 22px;
-            margin-bottom: 20px;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s,
+                border-color 0.2s,
+                background 0.2s;
         }
 
-        .file-title {
-            font-size: 12px;
-            color: var(--muted);
+        .member:hover {
+            transform: translateY(-4px);
+            border-color: #485465;
+            background: var(--panel-hover);
+        }
+
+        .member-number {
+            position: absolute;
+            top: 17px;
+            right: 18px;
+
+            color: #505b6b;
+            font-size: 10px;
             letter-spacing: 1px;
-            margin-bottom: 7px;
         }
 
-        .file-name {
-            font-size: 25px;
-            font-weight: bold;
-        }
+        .avatar {
+            width: 52px;
+            height: 52px;
 
-        .stamp {
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid var(--red);
-            color: var(--red);
-            padding: 8px 13px;
-            transform: rotate(-4deg);
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
 
-        /* WARNING */
-
-        .warning {
-            border: 1px solid #514625;
-            background: rgba(255, 209, 102, .06);
             border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
 
-        .warning-title {
-            color: var(--yellow);
-            font-weight: bold;
-            margin-bottom: 7px;
-        }
-
-        /* STATS */
-
-        .section-title {
-            font-size: 12px;
-            color: var(--muted);
-            letter-spacing: 1.5px;
-            margin: 32px 0 12px;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .stat {
-            background: var(--panel);
+            background: #1b222d;
             border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 20px;
-            transition: .2s;
-        }
 
-        .stat:hover {
-            transform: translateY(-3px);
-            border-color: #3a4554;
-        }
-
-        .stat-icon {
             font-size: 25px;
-            margin-bottom: 12px;
+
+            margin-bottom: 18px;
         }
 
-        .stat-label {
-            font-size: 11px;
-            color: var(--muted);
-            letter-spacing: 1px;
-        }
-
-        .stat-value {
-            font-size: 27px;
+        .member-name {
+            font-size: 24px;
             font-weight: bold;
-            margin: 5px 0;
+            margin-bottom: 4px;
         }
 
-        .red {
-            color: var(--red);
+        .member-title {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 18px;
         }
 
-        .green {
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+
+            font-size: 10px;
+            letter-spacing: 1px;
+
+            padding: 5px 9px;
+
+            border-radius: 999px;
+
+            background: rgba(92, 255, 157, 0.07);
             color: var(--green);
+            border: 1px solid rgba(92, 255, 157, 0.2);
         }
 
-        .yellow {
+        .status.warning {
             color: var(--yellow);
+            background: rgba(255, 209, 102, 0.07);
+            border-color: rgba(255, 209, 102, 0.2);
         }
 
-        .stat-description {
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        /* INCIDENT */
-
-        .incident {
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-        }
-
-        .incident-head {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 18px;
-            border-bottom: 1px solid var(--border);
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        .incident-row {
-            display: flex;
-            gap: 15px;
-            padding: 17px 18px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .incident-row:last-child {
-            border-bottom: none;
-        }
-
-        .incident-icon {
-            font-size: 22px;
-        }
-
-        .incident-row strong {
-            display: block;
-            margin-bottom: 3px;
-        }
-
-        .incident-row p {
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        /* BUTTONS */
-
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        button {
-            background: var(--panel);
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 20px;
-            text-align: left;
-            cursor: pointer;
-            transition: .2s;
-        }
-
-        button:hover {
-            background: var(--panel2);
-            transform: translateY(-3px);
-            border-color: #465364;
-        }
-
-        button .button-icon {
-            font-size: 25px;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        button strong {
-            display: block;
-            margin-bottom: 3px;
-        }
-
-        button small {
-            color: var(--muted);
-        }
-
-        /* RESULT */
-
-        #result {
+        .open-file {
             margin-top: 20px;
-            padding: 22px;
+
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* ADD MEMBER */
+
+        .add-member {
+            border: 1px dashed #384352;
+            background: transparent;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 210px;
+
+            color: var(--muted);
+            text-align: center;
+
+            cursor: default;
+        }
+
+        .add-member:hover {
+            transform: none;
+            background: transparent;
+            border-color: #384352;
+        }
+
+        .add-symbol {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #536071;
+        }
+
+        /* INFO */
+
+        .info {
+            margin-top: 35px;
+
             border: 1px solid var(--border);
             border-radius: 14px;
+
             background: var(--panel);
-            text-align: center;
+
+            padding: 20px;
+
             color: var(--muted);
-            min-height: 70px;
+            font-size: 12px;
+
+            text-align: center;
+        }
+
+        .info strong {
+            color: var(--text);
         }
 
         /* FOOTER */
 
         footer {
             text-align: center;
+
             margin-top: 45px;
+
             color: #596474;
-            font-size: 11px;
+
+            font-size: 10px;
+            letter-spacing: 0.5px;
         }
+
+        /* MOBILE */
 
         @media (max-width: 650px) {
 
             .container {
-                padding-top: 20px;
+                width: min(100% - 22px, 600px);
+                padding-top: 15px;
             }
 
             .topbar {
-                font-size: 9px;
-            }
-
-            .file-header {
-                grid-template-columns: 1fr;
-            }
-
-            .stamp {
-                width: max-content;
-            }
-
-            .stats,
-            .buttons {
-                grid-template-columns: 1fr;
+                margin-bottom: 40px;
+                font-size: 8px;
             }
 
             h1 {
                 letter-spacing: -2px;
             }
+
+            .members {
+                grid-template-columns: 1fr;
+            }
+
+            .member {
+                min-height: 200px;
+            }
         }
     </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
+
+    <!-- TOP BAR -->
+
     <div class="topbar">
-        <span>CLASSIFIED FILE // INDIA → AUSTRALIA</span>
-        <span class="status">● SUBJECT ACTIVE</span>
+
+        <span>
+            CLASSIFIED DATABASE // FRIEND GROUP
+        </span>
+
+        <span class="online">
+            ● DATABASE ONLINE
+        </span>
+
     </div>
 
+
+    <!-- HERO -->
 
     <header class="hero">
 
         <div class="classified">
-            🚨 CLASSIFIED // DO NOT TAKE SERIOUSLY
+            🚨 CLASSIFIED // AUTHORIZED MEMBERS ONLY
         </div>
 
         <h1>
-            KISHORE<br>
-            <span>AUSTRALIA EDITION 🇦🇺</span>
+            THE BOYS<br>
+            <span>DATABASE™</span>
         </h1>
 
         <p>
-            A comprehensive investigation into the individual
-            who somehow needed another juice after already drinking three.
+            Classified records of highly questionable individuals,
+            unnecessary incidents and historically important nonsense.
         </p>
 
     </header>
 
 
-    <section class="file-header">
+    <!-- MEMBERS -->
 
-        <div>
-            <div class="file-title">SUBJECT IDENTIFICATION</div>
+    <section>
 
-            <div class="file-name">
-                KISHORE
-            </div>
+        <div class="database-header">
 
-            <p style="color:var(--muted); font-size:13px;">
-                Former resident of India.
-                Current destination: Australia.
-            </p>
-        </div>
+            <h2>
+                👥 SUBJECT DATABASE
+            </h2>
 
-        <div class="stamp">
-            APPROVED<br>FOR EXPORT
-        </div>
-
-    </section>
-
-
-    <section class="warning">
-
-        <div class="warning-title">
-            ⚠️ OFFICIAL WARNING
-        </div>
-
-        <p>
-            Australian authorities have been informed about the
-            subject's unusual eating habits, uncontrollable juice
-            consumption and unpredictable bike noises.
-        </p>
-
-    </section>
-
-
-    <div class="section-title">
-        SUBJECT STATISTICS
-    </div>
-
-
-    <section class="stats">
-
-        <div class="stat">
-
-            <div class="stat-icon">🍗</div>
-
-            <div class="stat-label">
-                NIGHT FOOD CONSUMPTION
-            </div>
-
-            <div class="stat-value">
-                ∞
-            </div>
-
-            <div class="stat-description">
-                One does not simply finish eating.
-            </div>
+            <span>
+                2 RECORDS FOUND
+            </span>
 
         </div>
 
 
-        <div class="stat">
+        <div class="members">
 
-            <div class="stat-icon">🧃</div>
 
-            <div class="stat-label">
-                JUICE SHOP ATTRACTOR
+            <!-- KISHORE -->
+
+            <div
+                class="member"
+                onclick="openMember('kishore')"
+            >
+
+                <span class="member-number">
+                    #001
+                </span>
+
+
+                <div class="avatar">
+                    🇦🇺
+                </div>
+
+
+                <div class="member-name">
+                    Kishore
+                </div>
+
+
+                <div class="member-title">
+                    (Australian)
+                </div>
+
+
+                <div class="status">
+                    ● EXPORTED
+                </div>
+
+
+                <div class="open-file">
+                    Open classified file →
+                </div>
+
             </div>
 
-            <div class="stat-value yellow">
-                100%
+
+            <!-- VIJAY -->
+
+            <div
+                class="member"
+                onclick="openMember('vijay')"
+            >
+
+                <span class="member-number">
+                    #002
+                </span>
+
+
+                <div class="avatar">
+                    🎥
+                </div>
+
+
+                <div class="member-name">
+                    Vijay
+                </div>
+
+
+                <div class="member-title">
+                    (Youtuber)
+                </div>
+
+
+                <div class="status warning">
+                    ● UNDER SURVEILLANCE
+                </div>
+
+
+                <div class="open-file">
+                    Open classified file →
+                </div>
+
             </div>
 
-            <div class="stat-description">
-                Detects juice shops from kilometres away.
+
+            <!-- FUTURE MEMBER -->
+
+            <div class="member add-member">
+
+                <div>
+
+                    <div class="add-symbol">
+                        ＋
+                    </div>
+
+                    <strong>
+                        MORE SUBJECTS
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        Additional records will be added.
+                    </small>
+
+                </div>
+
             </div>
 
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-icon">📢</div>
-
-            <div class="stat-label">
-                RANDOM SCREAM PROBABILITY
-            </div>
-
-            <div class="stat-value red">
-                99.9%
-            </div>
-
-            <div class="stat-description">
-                Nearby civilians advised to remain calm.
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-icon">💨</div>
-
-            <div class="stat-label">
-                UNEXPECTED BURP FREQUENCY
-            </div>
-
-            <div class="stat-value red">
-                CLASSIFIED
-            </div>
-
-            <div class="stat-description">
-                Scientists stopped counting.
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <div class="section-title">
-        RECENTLY DOCUMENTED INCIDENTS
-    </div>
-
-
-    <section class="incident">
-
-        <div class="incident-head">
-            <span>INCIDENT LOG</span>
-            <span>STATUS: OPEN</span>
-        </div>
-
-
-        <div class="incident-row">
-
-            <div class="incident-icon">🧃</div>
-
-            <div>
-                <strong>JUICE SHOP INCIDENT #001</strong>
-
-                <p>
-                    Subject had already consumed multiple juices.
-                    Spotted another juice shop.
-                    Immediately requested: "Stop the bike."
-                </p>
-            </div>
-
-        </div>
-
-
-        <div class="incident-row">
-
-            <div class="incident-icon">🏍️</div>
-
-            <div>
-                <strong>BIKE INCIDENT #002</strong>
-
-                <p>
-                    Subject produced an unexpected loud noise
-                    while travelling. Nearby people were visibly
-                    frightened.
-                </p>
-            </div>
-
-        </div>
-
-
-        <div class="incident-row">
-
-            <div class="incident-icon">🍗</div>
-
-            <div>
-                <strong>NIGHT FOOD INCIDENT #003</strong>
-
-                <p>
-                    Subject once again requested food at night.
-                    Nobody was surprised.
-                </p>
-            </div>
 
         </div>
 
     </section>
 
 
-    <div class="section-title">
-        CLASSIFIED ARCHIVES
-    </div>
+    <!-- INFO -->
 
+    <div class="info">
 
-    <section class="buttons">
+        <strong>DATABASE NOTICE</strong>
+        <br><br>
 
-        <button onclick="showMessage(
-            '📸 EVIDENCE ARCHIVE<br><br>Currently under construction.<br><br>Photographic evidence will be added soon. Prepare yourself.'
-        )">
+        This database is maintained for absolutely
+        no legitimate reason.
 
-            <span class="button-icon">📸</span>
+        <br>
 
-            <strong>EVIDENCE ARCHIVE</strong>
+        New members, incidents, photos and classified
+        evidence will be added periodically.
 
-            <small>
-                Photographic proof
-            </small>
-
-        </button>
-
-
-        <button onclick="showMessage(
-            '🧃 JUICE DETECTOR ACTIVATED<br><br>🚨 JUICE SHOP DETECTED 🚨<br><br>Recommendation: KEEP DRIVING.'
-        )">
-
-            <span class="button-icon">🧃</span>
-
-            <strong>JUICE DETECTOR</strong>
-
-            <small>
-                Extremely sensitive
-            </small>
-
-        </button>
-
-
-        <button onclick="showMessage(
-            '🏍️ BIKE SAFETY SYSTEM<br><br>Passenger: KISHORE<br>Status: DANGEROUS<br><br>Recommendation: Wear a helmet AND ear protection.'
-        )">
-
-            <span class="button-icon">🏍️</span>
-
-            <strong>BIKE SAFETY REPORT</strong>
-
-            <small>
-                Noise hazard detected
-            </small>
-
-        </button>
-
-
-        <button onclick="showMessage(
-            '🎥 YOUTUBER DEPARTMENT<br><br>The group's unofficial Youtuber/Vlogger has been placed under permanent surveillance.<br><br>Reason: Nobody knows.'
-        )">
-
-            <span class="button-icon">🎥</span>
-
-            <strong>YOUTUBER DEPARTMENT</strong>
-
-            <small>
-                Under investigation
-            </small>
-
-        </button>
-
-    </section>
-
-
-    <div id="result">
-        🇮🇳 SUBJECT STATUS: <strong>READY FOR EXPORT.</strong><br>
-        🇦🇺 Australia has been notified.
     </div>
 
 
     <footer>
 
-        DEPARTMENT OF INTERNATIONAL MENACE<br><br>
+        THE BOYS DATABASE™
+        <br><br>
 
-        Case No. KISH-2026-AU<br>
-        This website was created because apparently
-        letting Kishore leave normally wasn't enough.
+        Unauthorized seriousness is strictly prohibited.
 
     </footer>
+
 
 </div>
 
 
 <script>
 
-function showMessage(message) {
+function openMember(member) {
 
-    document.getElementById("result").innerHTML = message;
+    if (member === "kishore") {
 
-    document.getElementById("result").scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
+        alert(
+            "CLASSIFIED FILE #001\n\n" +
+            "KISHORE\n" +
+            "(AUSTRALIAN)\n\n" +
+            "STATUS: EXPORTED\n\n" +
+            "Detailed file coming soon..."
+        );
+
+    }
+
+
+    if (member === "vijay") {
+
+        alert(
+            "CLASSIFIED FILE #002\n\n" +
+            "VIJAY\n" +
+            "(YOUTUBER)\n\n" +
+            "STATUS: UNDER SURVEILLANCE\n\n" +
+            "Detailed file coming soon..."
+        );
+
+    }
 
 }
 
