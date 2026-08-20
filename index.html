@@ -1,553 +1,1118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>THE BOYS DATABASE™</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --bg: #080a0f;
-            --panel: #11151d;
-            --panel-hover: #171d27;
-            --border: #29313d;
-            --text: #f2f5f8;
-            --muted: #8c98a8;
-            --red: #ff4d5a;
-            --green: #5cff9d;
-            --yellow: #ffd166;
-            --blue: #6ea8ff;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background:
-                radial-gradient(circle at 50% -10%, #202735 0%, transparent 45%),
-                var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-        }
-
-        .container {
-            width: min(950px, calc(100% - 30px));
-            margin: auto;
-            padding: 25px 0 60px;
-        }
-
-        /* TOP BAR */
-
-        .topbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-
-            border: 1px solid var(--border);
-            background: rgba(17, 21, 29, 0.9);
-
-            padding: 11px 15px;
-            border-radius: 10px;
-
-            font-size: 10px;
-            letter-spacing: 1px;
-            color: var(--muted);
-
-            margin-bottom: 55px;
-        }
-
-        .online {
-            color: var(--green);
-        }
-
-        /* HERO */
-
-        .hero {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .classified {
-            display: inline-block;
-
-            color: var(--red);
-
-            border: 1px solid rgba(255, 77, 90, 0.35);
-            background: rgba(255, 77, 90, 0.08);
-
-            padding: 7px 13px;
-            border-radius: 999px;
-
-            font-size: 10px;
-            letter-spacing: 1.5px;
-
-            margin-bottom: 22px;
-        }
-
-        h1 {
-            font-size: clamp(42px, 10vw, 80px);
-            line-height: 0.9;
-            letter-spacing: -4px;
-            margin-bottom: 20px;
-        }
-
-        h1 span {
-            color: var(--red);
-        }
-
-        .hero p {
-            max-width: 620px;
-            margin: auto;
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* DATABASE HEADER */
-
-        .database-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THE BOYS™ — Namma Pasanga</title>
+
+<style>
+
+/* =========================
+   BASIC RETRO SETUP
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #008080;
+    color: #000080;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+a {
+    color: #0000ee;
+}
+
+.wrapper {
+    width: min(950px, calc(100% - 20px));
+    margin: 15px auto;
+    background: #c0c0c0;
+    border: 4px ridge #ffffff;
+    padding: 7px;
+}
+
+
+/* =========================
+   TITLE BAR
+========================= */
+
+.titlebar {
+    background: #000080;
+    color: white;
+    padding: 10px 12px;
+    border: 2px outset #ffffff;
+}
+
+.titlebar h1 {
+    margin: 0;
+    font-size: clamp(22px, 5vw, 38px);
+}
+
+.titlebar p {
+    margin: 5px 0 0;
+    font-size: 12px;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 8px 0;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 7px 12px;
+    background: #c0c0c0;
+    border: 3px outset #ffffff;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav a:active {
+    border-style: inset;
+}
+
+
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee {
+    background: #ffff00;
+    color: #ff0000;
+    border: 2px solid #000000;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll 14s linear infinite;
+}
+
+@keyframes scroll {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    text-align: center;
+    background: #ffffff;
+    border: 3px inset #ffffff;
+    padding: 25px 15px;
+    margin-top: 10px;
+}
+
+.hero h2 {
+    font-size: clamp(25px, 6vw, 45px);
+    margin: 5px 0;
+    color: #ff00ff;
+    text-shadow: 2px 2px #00ffff;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 12px auto;
+}
+
+.construction {
+    display: inline-block;
+    background: #ffff00;
+    color: #ff0000;
+    border: 3px dashed #ff0000;
+    padding: 7px 12px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+    background: #000080;
+    color: white;
+    padding: 7px 10px;
+    margin-top: 12px;
+    border: 2px outset #ffffff;
+    font-weight: bold;
+}
+
+
+/* =========================
+   MEMBERS
+========================= */
+
+.members {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+    background: #ffffff;
+    border: 3px inset #ffffff;
+}
+
+.member {
+    background: #eeeeee;
+    border: 3px outset #ffffff;
+    padding: 10px;
+}
+
+.member:hover {
+    background: #ffffcc;
+}
+
+.member-image {
+    height: 180px;
+    background: #808080;
+    border: 3px inset #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.placeholder {
+    padding: 10px;
+}
+
+.member h3 {
+    font-size: 23px;
+    margin: 5px 0;
+}
+
+.member p {
+    margin: 5px 0;
+}
+
+.enter {
+    display: inline-block;
+    margin-top: 8px;
+    background: #c0c0c0;
+    color: #000000;
+    border: 3px outset #ffffff;
+    padding: 6px 12px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.enter:active {
+    border-style: inset;
+}
+
+
+/* =========================
+   MEME BOXES
+========================= */
+
+.box-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+    background: #ffffff;
+    border: 3px inset #ffffff;
+}
+
+.meme-box {
+    background: #ffffcc;
+    border: 3px outset #ffffff;
+    padding: 14px;
+}
+
+.meme-box h3 {
+    color: #ff0000;
+    margin-top: 0;
+}
+
+.meme-text {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.reaction {
+    height: 160px;
+    margin-top: 12px;
+    background: #808080;
+    border: 3px inset #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.reaction img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================
+   FAKE STATS
+========================= */
+
+.stats {
+    background: white;
+    border: 3px inset #ffffff;
+    padding: 12px;
+}
+
+.stat {
+    margin: 10px 0;
+}
+
+.bar {
+    height: 18px;
+    background: #808080;
+    border: 2px inset #ffffff;
+}
+
+.fill {
+    height: 100%;
+    background: #0000ff;
+}
+
+.stat-number {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+
+/* =========================
+   GUESTBOOK
+========================= */
+
+.guestbook {
+    background: white;
+    border: 3px inset #ffffff;
+    padding: 15px;
+}
+
+.message {
+    background: #eeeeee;
+    border: 2px groove #ffffff;
+    padding: 10px;
+    margin: 8px 0;
+}
+
+.message strong {
+    color: #800080;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    text-align: center;
+    padding: 20px 10px 10px;
+    font-size: 12px;
+}
+
+.visitor {
+    display: inline-block;
+    background: #000000;
+    color: #00ff00;
+    padding: 4px 7px;
+    font-family: monospace;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    .members,
+    .box-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .member-image {
+        height: 220px;
+    }
+
+    .wrapper {
+        width: calc(100% - 8px);
+        margin: 4px auto;
+    }
+
+    .nav a {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+}
+
+</style>
 
-            border-bottom: 1px solid var(--border);
-
-            padding-bottom: 12px;
-            margin-bottom: 15px;
-        }
-
-        .database-header h2 {
-            font-size: 13px;
-            letter-spacing: 1.5px;
-        }
-
-        .database-header span {
-            color: var(--muted);
-            font-size: 11px;
-        }
-
-        /* MEMBERS */
-
-        .members {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-        }
-
-        .member {
-            position: relative;
-
-            border: 1px solid var(--border);
-            background: var(--panel);
-
-            border-radius: 16px;
-            padding: 22px;
-
-            cursor: pointer;
-
-            transition:
-                transform 0.2s,
-                border-color 0.2s,
-                background 0.2s;
-        }
-
-        .member:hover {
-            transform: translateY(-4px);
-            border-color: #485465;
-            background: var(--panel-hover);
-        }
-
-        .member-number {
-            position: absolute;
-            top: 17px;
-            right: 18px;
-
-            color: #505b6b;
-            font-size: 10px;
-            letter-spacing: 1px;
-        }
-
-        .avatar {
-            width: 52px;
-            height: 52px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 14px;
-
-            background: #1b222d;
-            border: 1px solid var(--border);
-
-            font-size: 25px;
-
-            margin-bottom: 18px;
-        }
-
-        .member-name {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-
-        .member-title {
-            color: var(--muted);
-            font-size: 13px;
-            margin-bottom: 18px;
-        }
-
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-
-            font-size: 10px;
-            letter-spacing: 1px;
-
-            padding: 5px 9px;
-
-            border-radius: 999px;
-
-            background: rgba(92, 255, 157, 0.07);
-            color: var(--green);
-            border: 1px solid rgba(92, 255, 157, 0.2);
-        }
-
-        .status.warning {
-            color: var(--yellow);
-            background: rgba(255, 209, 102, 0.07);
-            border-color: rgba(255, 209, 102, 0.2);
-        }
-
-        .open-file {
-            margin-top: 20px;
-
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        /* ADD MEMBER */
-
-        .add-member {
-            border: 1px dashed #384352;
-            background: transparent;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            min-height: 210px;
-
-            color: var(--muted);
-            text-align: center;
-
-            cursor: default;
-        }
-
-        .add-member:hover {
-            transform: none;
-            background: transparent;
-            border-color: #384352;
-        }
-
-        .add-symbol {
-            font-size: 32px;
-            margin-bottom: 10px;
-            color: #536071;
-        }
-
-        /* INFO */
-
-        .info {
-            margin-top: 35px;
-
-            border: 1px solid var(--border);
-            border-radius: 14px;
-
-            background: var(--panel);
-
-            padding: 20px;
-
-            color: var(--muted);
-            font-size: 12px;
-
-            text-align: center;
-        }
-
-        .info strong {
-            color: var(--text);
-        }
-
-        /* FOOTER */
-
-        footer {
-            text-align: center;
-
-            margin-top: 45px;
-
-            color: #596474;
-
-            font-size: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 650px) {
-
-            .container {
-                width: min(100% - 22px, 600px);
-                padding-top: 15px;
-            }
-
-            .topbar {
-                margin-bottom: 40px;
-                font-size: 8px;
-            }
-
-            h1 {
-                letter-spacing: -2px;
-            }
-
-            .members {
-                grid-template-columns: 1fr;
-            }
-
-            .member {
-                min-height: 200px;
-            }
-        }
-    </style>
 </head>
 
 
 <body>
 
-<div class="container">
+<div class="wrapper">
 
 
-    <!-- TOP BAR -->
+<!-- TITLE -->
 
-    <div class="topbar">
+<div class="titlebar">
 
-        <span>
-            CLASSIFIED DATABASE // FRIEND GROUP
-        </span>
+    <h1>★ THE BOYS™ ★</h1>
 
-        <span class="online">
-            ● DATABASE ONLINE
-        </span>
+    <p>
+        Namma Pasanga Official-Official Website™
+    </p>
+
+</div>
+
+
+<!-- NAV -->
+
+<div class="nav">
+
+    <a href="index.html">🏠 HOME</a>
+
+    <a href="#members">👥 NAMMA PASANGA</a>
+
+    <a href="#memes">😂 SAMBAVAM</a>
+
+    <a href="#stats">📊 STATISTICS</a>
+
+    <a href="#guestbook">📖 GUESTBOOK</a>
+
+</div>
+
+
+<!-- NEWS -->
+
+<div class="marquee">
+
+    <span>
+        🚨 BREAKING NEWS: KISHORE HAS BEEN SUCCESSFULLY EXPORTED TO AUSTRALIA 🇦🇺
+        &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+        🧃 KOVILPATTI JUICE KADAI SALES 📈📈📈
+        &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+        🎥 VIJAY CAMERA STATUS: ON
+    </span>
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="construction">
+
+        🚧 SITE UNDER CONSTRUCTION 🚧
+
+    </div>
+
+    <h2>
+
+        VANAKKAM DA 👋
+
+    </h2>
+
+    <p>
+
+        Welcome to the official unofficial website
+        of <strong>THE BOYS™</strong>.
+
+        <br><br>
+
+        Namma pasanga pathi inga irukura information
+        ellam <strong>100% unnecessary</strong>.
+
+        <br><br>
+
+        Seriousness level:
+
+        <strong style="color:red;">
+            0%
+        </strong>
+
+    </p>
+
+</section>
+
+
+<!-- MEMBERS -->
+
+<div
+    class="section-title"
+    id="members"
+>
+
+    👥 NAMMA PASANGA — MEMBER DATABASE
+
+</div>
+
+
+<section class="members">
+
+
+<!-- KISHORE -->
+
+<div class="member">
+
+
+    <div class="member-image">
+
+        <!--
+        IMAGE SLOT:
+
+        Later upload:
+        images/kishore-profile.jpg
+
+        Then replace this entire div content with:
+
+        <img src="images/kishore-profile.jpg"
+             alt="Kishore">
+        -->
+
+        <div class="placeholder">
+
+            📸<br><br>
+
+            KISHORE PHOTO GOES HERE
+
+            <br><br>
+
+            <small>
+                (funny one preferably 😂)
+            </small>
+
+        </div>
 
     </div>
 
 
-    <!-- HERO -->
+    <h3>
+        🇦🇺 KISHORE
+    </h3>
 
-    <header class="hero">
 
-        <div class="classified">
-            🚨 CLASSIFIED // AUTHORIZED MEMBERS ONLY
-        </div>
+    <p>
+        <strong>(Australian)</strong>
+    </p>
 
-        <h1>
-            THE BOYS<br>
-            <span>DATABASE™</span>
-        </h1>
 
-        <p>
-            Classified records of highly questionable individuals,
-            unnecessary incidents and historically important nonsense.
-        </p>
+    <p>
+        Kovilpatti → Australia
+    </p>
 
-    </header>
 
+    <p>
+        🧃 Juice radar: ACTIVE
+    </p>
 
-    <!-- MEMBERS -->
 
-    <section>
-
-        <div class="database-header">
-
-            <h2>
-                👥 SUBJECT DATABASE
-            </h2>
-
-            <span>
-                2 RECORDS FOUND
-            </span>
-
-        </div>
-
-
-        <div class="members">
-
-
-            <!-- KISHORE -->
-
-            <div
-                class="member"
-                onclick="openMember('kishore')"
-            >
-
-                <span class="member-number">
-                    #001
-                </span>
-
-
-                <div class="avatar">
-                    🇦🇺
-                </div>
-
-
-                <div class="member-name">
-                    Kishore
-                </div>
-
-
-                <div class="member-title">
-                    (Australian)
-                </div>
-
-
-                <div class="status">
-                    ● EXPORTED
-                </div>
-
-
-                <div class="open-file">
-                    Open classified file →
-                </div>
-
-            </div>
-
-
-            <!-- VIJAY -->
-
-            <div
-                class="member"
-                onclick="openMember('vijay')"
-            >
-
-                <span class="member-number">
-                    #002
-                </span>
-
-
-                <div class="avatar">
-                    🎥
-                </div>
-
-
-                <div class="member-name">
-                    Vijay
-                </div>
-
-
-                <div class="member-title">
-                    (Youtuber)
-                </div>
-
-
-                <div class="status warning">
-                    ● UNDER SURVEILLANCE
-                </div>
-
-
-                <div class="open-file">
-                    Open classified file →
-                </div>
-
-            </div>
-
-
-            <!-- FUTURE MEMBER -->
-
-            <div class="member add-member">
-
-                <div>
-
-                    <div class="add-symbol">
-                        ＋
-                    </div>
-
-                    <strong>
-                        MORE SUBJECTS
-                    </strong>
-
-                    <br>
-
-                    <small>
-                        Additional records will be added.
-                    </small>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- INFO -->
-
-    <div class="info">
-
-        <strong>DATABASE NOTICE</strong>
-        <br><br>
-
-        This database is maintained for absolutely
-        no legitimate reason.
-
-        <br>
-
-        New members, incidents, photos and classified
-        evidence will be added periodically.
-
-    </div>
-
-
-    <footer>
-
-        THE BOYS DATABASE™
-        <br><br>
-
-        Unauthorized seriousness is strictly prohibited.
-
-    </footer>
+    <a
+        class="enter"
+        href="Kishore.html"
+    >
+        👉 ENTER FILE
+    </a>
 
 
 </div>
 
 
- <script>
+<!-- VIJAY -->
 
-function openMember(member) {
+<div class="member">
 
-    if (member === "kishore") {
-        window.location.href = "Kishore.html";
-    }
 
-    if (member === "vijay") {
-        alert(
-            "CLASSIFIED FILE #002\n\n" +
-            "VIJAY\n" +
-            "(YOUTUBER)\n\n" +
-            "STATUS: UNDER SURVEILLANCE\n\n" +
-            "Detailed file coming soon..."
-        );
-    }
+    <div class="member-image">
 
-}
+        <!--
+        IMAGE SLOT:
 
-</script>
+        Later upload:
+        images/vijay-profile.jpg
+        -->
+
+        <div class="placeholder">
+
+            📸<br><br>
+
+            VIJAY PHOTO GOES HERE
+
+            <br><br>
+
+            <small>
+                (camera visible = bonus points 😂)
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <h3>
+        🎥 VIJAY
+    </h3>
+
+
+    <p>
+        <strong>(Youtuber)</strong>
+    </p>
+
+
+    <p>
+        Camera irundha podhum.
+        Content ready.
+    </p>
+
+
+    <p>
+        📹 Camera status: ON
+    </p>
+
+
+    <a
+        class="enter"
+        href="#"
+        onclick="alert('VIJAY FILE: COMING SOON 😂')"
+    >
+        👉 ENTER FILE
+    </a>
+
+
+</div>
+
+
+<!-- FUTURE -->
+
+<div class="member">
+
+
+    <div class="member-image">
+
+        ➕
+
+        <br>
+
+        FUTURE MEMBER
+
+    </div>
+
+
+    <h3>
+        ????
+    </h3>
+
+
+    <p>
+        <strong>(Classified)</strong>
+    </p>
+
+
+    <p>
+        Innum details collect pannitu irukom.
+    </p>
+
+
+    <a class="enter" href="#">
+        COMING SOON
+    </a>
+
+
+</div>
+
+
+</section>
+
+
+<!-- MEMES -->
+
+<div
+    class="section-title"
+    id="memes"
+>
+
+    😂 IMPORTANT SAMBAVANGAL
+
+</div>
+
+
+<section class="box-grid">
+
+
+<!-- JUICE -->
+
+<div class="meme-box">
+
+    <h3>
+        🧃 JUICE KADAI ECONOMY
+    </h3>
+
+
+    <p class="meme-text">
+
+        Kovilpatti juice kadai sales
+        after Kishore vandhadhuku apram:
+
+    </p>
+
+
+    <p
+        style="
+        font-size:25px;
+        margin:10px 0;
+        "
+    >
+
+        📈📈📈📈📈📈📈
+
+    </p>
+
+
+    <p>
+
+        Bro already juice kudichirundhaalum...
+
+        <br>
+
+        <strong>
+            Juice kadai paatha stop.
+        </strong>
+
+    </p>
+
+
+    <div class="reaction">
+
+        <!--
+        IMAGE SLOT:
+
+        images/kishore-juice-reaction.jpg
+        -->
+
+        📸 JUICE REACTION IMAGE
+
+    </div>
+
+</div>
+
+
+<!-- NIGHT FOOD -->
+
+<div class="meme-box">
+
+    <h3>
+        🍗 NIGHT FOOD ECONOMY
+    </h3>
+
+
+    <p class="meme-text">
+
+        Night food orders
+        after Kishore:
+
+    </p>
+
+
+    <p
+        style="
+        font-size:25px;
+        margin:10px 0;
+        "
+    >
+
+        📈📈📈📈📈
+
+    </p>
+
+
+    <p>
+
+        11:30 PM:
+
+        <br>
+
+        Everyone:
+        <strong>
+            "Thoongalama?"
+        </strong>
+
+        <br><br>
+
+        Kishore:
+
+        <strong>
+            "Sapda polama?"
+        </strong>
+
+    </p>
+
+
+    <div class="reaction">
+
+        📸 NIGHT FOOD REACTION IMAGE
+
+    </div>
+
+</div>
+
+
+<!-- SCREAM -->
+
+<div class="meme-box">
+
+    <h3>
+        🏍️ BIKE RIDE INCIDENT
+    </h3>
+
+
+    <p class="meme-text">
+
+        Nearby people after
+        Kishore's random scream:
+
+    </p>
+
+
+    <p
+        style="
+        font-size:25px;
+        margin:10px 0;
+        "
+    >
+
+        😳📈📈📈
+
+    </p>
+
+
+    <div class="reaction">
+
+        <!--
+        IMAGE SLOT:
+
+        images/kishore-scream-reaction.jpg
+
+        Tamil comedian reaction image
+        goes here later.
+        -->
+
+        📸 TAMIL REACTION IMAGE
+
+    </div>
+
+</div>
+
+
+<!-- BURP -->
+
+<div class="meme-box">
+
+    <h3>
+        💨 UNEXPECTED SOUND DEPARTMENT
+    </h3>
+
+
+    <p class="meme-text">
+
+        Sound detected while
+        travelling on bike:
+
+    </p>
+
+
+    <p
+        style="
+        font-size:25px;
+        margin:10px 0;
+        "
+    >
+
+        🚨📢💨
+
+    </p>
+
+
+    <p>
+
+        Nearby civilian:
+
+        <strong>
+            "Enna da satham?"
+        </strong>
+
+        😂
+
+    </p>
+
+
+    <div class="reaction">
+
+        📸 REACTION IMAGE
+
+    </div>
+
+</div>
+
+
+</section>
+
+
+<!-- STATS -->
+
+<div
+    class="section-title"
+    id="stats"
+>
+
+    📊 SCIENTIFICALLY UNNECESSARY STATISTICS
+
+</div>
+
+
+<section class="stats">
+
+
+<div class="stat">
+
+    🧃 Juice shop detection
+
+    <span class="stat-number">
+        100%
+    </span>
+
+    <div class="bar">
+
+        <div
+            class="fill"
+            style="width:100%"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<div class="stat">
+
+    🍗 Night food requirement
+
+    <span class="stat-number">
+        ∞
+    </span>
+
+    <div class="bar">
+
+        <div
+            class="fill"
+            style="width:100%"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<div class="stat">
+
+    🏍️ Random scream probability
+
+    <span class="stat-number">
+        99.9%
+    </span>
+
+    <div class="bar">
+
+        <div
+            class="fill"
+            style="width:99%"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<div class="stat">
+
+    🎥 Vijay camera activation
+
+    <span class="stat-number">
+        100%
+    </span>
+
+    <div class="bar">
+
+        <div
+            class="fill"
+            style="width:100%"
+        ></div>
+
+    </div>
+
+</div>
+
+
+</section>
+
+
+<!-- GUESTBOOK -->
+
+<div
+    class="section-title"
+    id="guestbook"
+>
+
+    📖 GUESTBOOK
+
+</div>
+
+
+<section class="guestbook">
+
+
+<div class="message">
+
+    <strong>Anonymous #001:</strong>
+
+    <br>
+
+    "Dei niruthra juice kadai!"
+
+</div>
+
+
+<div class="message">
+
+    <strong>Anonymous #002:</strong>
+
+    <br>
+
+    "Content da."
+
+</div>
+
+
+<div class="message">
+
+    <strong>Anonymous #003:</strong>
+
+    <br>
+
+    "Indha website edhuku?"
+
+</div>
+
+
+<div class="message">
+
+    <strong>Website Admin:</strong>
+
+    <br>
+
+    "Therila da."
+
+</div>
+
+
+</section>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    <p>
+
+        👁️ YOU ARE VISITOR NUMBER
+
+    </p>
+
+
+    <div class="visitor">
+
+        000069
+
+    </div>
+
+
+    <p>
+
+        <br>
+
+        Last updated:
+
+        <strong>
+            Eppo update pannomo appo.
+        </strong>
+
+    </p>
+
+
+    <p>
+
+        🚧 Best viewed with Internet Explorer 6 🚧
+
+    </p>
+
+
+    <br>
+
+    <p>
+
+        © THE BOYS™ — Namma pasanga official unofficial website
+
+    </p>
+
+</div>
+
+
+</div>
 
 </body>
+
 </html>
