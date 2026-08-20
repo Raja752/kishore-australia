@@ -3,750 +3,835 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kishore // Classified File</title>
+<title>Kishore // Classified File</title>
 
+<style>
 
-    <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+:root {
+    --bg: #07090d;
+    --panel: #11151c;
+    --panel2: #171c24;
+    --border: #29313d;
 
+    --text: #f2f5f8;
+    --muted: #8995a5;
 
-        :root {
+    --red: #ff4d5a;
+    --yellow: #ffd166;
+    --green: #5cff9d;
+    --blue: #6ea8ff;
+}
 
-            --bg: #080a0f;
-            --panel: #11151d;
-            --panel2: #171d27;
-            --border: #29313d;
+body {
 
-            --text: #f2f5f8;
-            --muted: #8c98a8;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-            --red: #ff4d5a;
-            --green: #5cff9d;
-            --yellow: #ffd166;
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            #202735 0%,
+            transparent 45%
+        ),
+        var(--bg);
 
-        }
+    color: var(--text);
 
+    min-height: 100vh;
 
-        body {
+    line-height: 1.5;
+}
 
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
+.container {
 
-            background:
-                radial-gradient(
-                    circle at 50% -10%,
-                    #202735 0%,
-                    transparent 45%
-                ),
-                var(--bg);
+    width:
+        min(
+            900px,
+            calc(100% - 28px)
+        );
 
-            color: var(--text);
+    margin: auto;
 
-            min-height: 100vh;
+    padding:
+        20px
+        0
+        70px;
+}
 
-            line-height: 1.5;
 
-        }
+/* TOP BAR */
 
+.topbar {
 
-        .container {
+    display: flex;
 
-            width:
-                min(
-                    900px,
-                    calc(100% - 28px)
-                );
+    justify-content:
+        space-between;
 
-            margin: auto;
+    align-items:
+        center;
 
-            padding:
-                25px
-                0
-                60px;
+    border:
+        1px solid
+        var(--border);
 
-        }
+    background:
+        rgba(
+            17,
+            21,
+            28,
+            .9
+        );
 
+    padding:
+        11px
+        14px;
 
-        /* TOP BAR */
+    border-radius:
+        10px;
 
-        .topbar {
+    color:
+        var(--muted);
 
-            display: flex;
+    font-size:
+        10px;
 
-            justify-content:
-                space-between;
+    letter-spacing:
+        1px;
 
-            align-items:
-                center;
+    margin-bottom:
+        25px;
+}
 
-            gap: 15px;
+.live {
+    color: var(--green);
+}
 
-            border:
-                1px solid
-                var(--border);
 
-            background:
-                rgba(
-                    17,
-                    21,
-                    29,
-                    .9
-                );
+/* BACK */
 
-            padding:
-                11px
-                15px;
+.back {
 
-            border-radius:
-                10px;
+    display:
+        inline-block;
 
-            font-size:
-                10px;
+    color:
+        var(--muted);
 
-            letter-spacing:
-                1px;
+    text-decoration:
+        none;
 
-            color:
-                var(--muted);
+    font-size:
+        12px;
 
-            margin-bottom:
-                35px;
+    margin-bottom:
+        30px;
+}
 
-        }
+.back:hover {
+    color: white;
+}
 
 
-        .status {
+/* HERO */
 
-            color:
-                var(--green);
+.hero {
 
-        }
+    text-align:
+        center;
 
+    margin-bottom:
+        35px;
+}
 
-        /* BACK BUTTON */
+.classified {
 
-        .back {
+    display:
+        inline-block;
 
-            display:
-                inline-block;
+    color:
+        var(--red);
 
-            color:
-                var(--muted);
+    border:
+        1px solid
+        rgba(
+            255,
+            77,
+            90,
+            .35
+        );
 
-            text-decoration:
-                none;
+    background:
+        rgba(
+            255,
+            77,
+            90,
+            .08
+        );
 
-            font-size:
-                12px;
+    padding:
+        7px
+        13px;
 
-            margin-bottom:
-                30px;
+    border-radius:
+        999px;
 
-        }
+    font-size:
+        10px;
 
+    letter-spacing:
+        1.5px;
 
-        .back:hover {
+    margin-bottom:
+        18px;
+}
 
-            color:
-                var(--text);
+h1 {
 
-        }
+    font-size:
+        clamp(
+            45px,
+            10vw,
+            78px
+        );
 
+    line-height:
+        .9;
 
-        /* HERO */
+    letter-spacing:
+        -4px;
 
-        .hero {
+    margin-bottom:
+        15px;
+}
 
-            text-align:
-                center;
+h1 span {
+    color: var(--red);
+}
 
-            margin-bottom:
-                35px;
+.hero p {
 
-        }
+    color:
+        var(--muted);
 
+    font-size:
+        14px;
+}
 
-        .classified {
 
-            display:
-                inline-block;
+/* SUBJECT */
 
-            color:
-                var(--red);
+.subject {
 
-            border:
-                1px solid
-                rgba(
-                    255,
-                    77,
-                    90,
-                    .35
-                );
+    background:
+        var(--panel);
 
-            background:
-                rgba(
-                    255,
-                    77,
-                    90,
-                    .08
-                );
+    border:
+        1px solid
+        var(--border);
 
-            padding:
-                7px
-                13px;
+    border-radius:
+        16px;
 
-            border-radius:
-                999px;
+    padding:
+        23px;
 
-            font-size:
-                10px;
+    margin-bottom:
+        20px;
+}
 
-            letter-spacing:
-                1.5px;
+.subject-top {
 
-            margin-bottom:
-                20px;
+    display:
+        flex;
 
-        }
+    justify-content:
+        space-between;
 
+    gap:
+        20px;
+}
 
-        h1 {
+.subject-id {
 
-            font-size:
-                clamp(
-                    45px,
-                    10vw,
-                    80px
-                );
+    color:
+        var(--muted);
 
-            line-height:
-                .9;
+    font-size:
+        10px;
 
-            letter-spacing:
-                -4px;
+    letter-spacing:
+        1px;
+}
 
-            margin-bottom:
-                15px;
+.subject-name {
 
-        }
+    font-size:
+        30px;
 
+    font-weight:
+        bold;
 
-        h1 span {
+    margin-top:
+        4px;
+}
 
-            color:
-                var(--red);
+.subject-title {
 
-        }
+    color:
+        var(--muted);
 
+    font-size:
+        13px;
+}
 
-        .hero p {
+.stamp {
 
-            color:
-                var(--muted);
+    border:
+        2px solid
+        var(--red);
 
-            font-size:
-                14px;
+    color:
+        var(--red);
 
-        }
+    padding:
+        7px
+        11px;
 
+    height:
+        max-content;
 
-        /* SUBJECT CARD */
+    transform:
+        rotate(-4deg);
 
-        .subject {
+    font-size:
+        10px;
 
-            border:
-                1px solid
-                var(--border);
+    font-weight:
+        bold;
 
-            background:
-                var(--panel);
+    letter-spacing:
+        1px;
+}
 
-            border-radius:
-                16px;
 
-            padding:
-                24px;
+/* DETAILS */
 
-            margin-bottom:
-                20px;
+.details {
 
-        }
+    display:
+        grid;
 
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
 
-        .subject-top {
+    gap:
+        10px;
 
-            display:
-                flex;
+    margin-top:
+        20px;
+}
 
-            justify-content:
-                space-between;
+.detail {
 
-            align-items:
-                flex-start;
+    background:
+        var(--panel2);
 
-            gap:
-                20px;
+    border:
+        1px solid
+        var(--border);
 
-        }
+    border-radius:
+        10px;
 
+    padding:
+        13px;
+}
 
-        .subject-number {
+.detail-label {
 
-            color:
-                var(--muted);
+    color:
+        var(--muted);
 
-            font-size:
-                10px;
+    font-size:
+        9px;
 
-            letter-spacing:
-                1px;
+    letter-spacing:
+        1px;
+}
 
-        }
+.detail-value {
 
+    font-weight:
+        bold;
 
-        .subject-name {
+    margin-top:
+        4px;
 
-            font-size:
-                30px;
+    font-size:
+        14px;
+}
 
-            font-weight:
-                bold;
 
-            margin-top:
-                5px;
+/* SECTION TITLE */
 
-        }
+.section-title {
 
+    color:
+        var(--muted);
 
-        .subject-title {
+    font-size:
+        11px;
 
-            color:
-                var(--muted);
+    letter-spacing:
+        1.5px;
 
-            font-size:
-                13px;
+    margin:
+        30px
+        0
+        12px;
+}
 
-        }
 
+/* STATS */
 
-        .stamp {
+.stats {
 
-            color:
-                var(--red);
+    display:
+        grid;
 
-            border:
-                2px solid
-                var(--red);
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
 
-            padding:
-                8px
-                12px;
+    gap:
+        12px;
+}
 
-            transform:
-                rotate(-4deg);
+.stat {
 
-            font-size:
-                10px;
+    background:
+        var(--panel);
 
-            font-weight:
-                bold;
+    border:
+        1px solid
+        var(--border);
 
-            letter-spacing:
-                1px;
+    border-radius:
+        14px;
 
-            white-space:
-                nowrap;
+    padding:
+        20px;
+}
 
-        }
+.stat-label {
 
+    color:
+        var(--muted);
 
-        .details {
+    font-size:
+        10px;
 
-            display:
-                grid;
+    letter-spacing:
+        1px;
+}
 
-            grid-template-columns:
-                repeat(
-                    3,
-                    1fr
-                );
+.stat-value {
 
-            gap:
-                10px;
+    font-size:
+        29px;
 
-            margin-top:
-                22px;
+    font-weight:
+        bold;
 
-        }
+    margin:
+        5px 0;
+}
 
+.stat-description {
 
-        .detail {
+    color:
+        var(--muted);
 
-            background:
-                var(--panel2);
+    font-size:
+        12px;
+}
 
-            border:
-                1px solid
-                var(--border);
+.red {
+    color: var(--red);
+}
 
-            padding:
-                13px;
+.yellow {
+    color: var(--yellow);
+}
 
-            border-radius:
-                10px;
+.green {
+    color: var(--green);
+}
 
-        }
 
+/* JUICE METER */
 
-        .detail-label {
+.meter-box {
 
-            color:
-                var(--muted);
+    background:
+        var(--panel);
 
-            font-size:
-                9px;
+    border:
+        1px solid
+        var(--border);
 
-            letter-spacing:
-                1px;
+    border-radius:
+        15px;
 
-        }
+    padding:
+        20px;
+}
 
+.meter-top {
 
-        .detail-value {
+    display:
+        flex;
 
-            font-size:
-                14px;
+    justify-content:
+        space-between;
 
-            font-weight:
-                bold;
+    font-size:
+        12px;
 
-            margin-top:
-                4px;
+    margin-bottom:
+        10px;
+}
 
-        }
+.meter {
 
+    width:
+        100%;
 
-        /* SECTION */
+    height:
+        12px;
 
-        .section-title {
+    background:
+        #252c36;
 
-            color:
-                var(--muted);
+    border-radius:
+        20px;
 
-            font-size:
-                11px;
+    overflow:
+        hidden;
+}
 
-            letter-spacing:
-                1.5px;
+.meter-fill {
 
-            margin:
-                30px
-                0
-                12px;
+    width:
+        100%;
 
-        }
+    height:
+        100%;
 
+    background:
+        var(--yellow);
 
-        /* INCIDENT */
+    animation:
+        pulse 1.5s infinite alternate;
+}
 
-        .incident {
+@keyframes pulse {
 
-            border:
-                1px solid
-                var(--border);
+    from {
+        opacity: .65;
+    }
 
-            background:
-                var(--panel);
+    to {
+        opacity: 1;
+    }
 
-            border-radius:
-                15px;
+}
 
-            overflow:
-                hidden;
 
-        }
+/* INCIDENT */
 
+.incident {
 
-        .incident-row {
+    background:
+        var(--panel);
 
-            padding:
-                20px;
+    border:
+        1px solid
+        var(--border);
 
-            border-bottom:
-                1px solid
-                var(--border);
+    border-radius:
+        15px;
 
-        }
+    overflow:
+        hidden;
+}
 
+.incident-row {
 
-        .incident-row:last-child {
+    padding:
+        20px;
 
-            border-bottom:
-                none;
+    border-bottom:
+        1px solid
+        var(--border);
+}
 
-        }
+.incident-row:last-child {
+    border-bottom: none;
+}
 
+.incident-label {
 
-        .incident-label {
+    color:
+        var(--red);
 
-            color:
-                var(--red);
+    font-size:
+        10px;
 
-            font-size:
-                10px;
+    letter-spacing:
+        1px;
 
-            letter-spacing:
-                1px;
+    margin-bottom:
+        7px;
+}
 
-            margin-bottom:
-                7px;
+.incident-title {
 
-        }
+    font-size:
+        18px;
 
+    font-weight:
+        bold;
 
-        .incident-title {
+    margin-bottom:
+        10px;
+}
 
-            font-size:
-                18px;
+.quote {
 
-            font-weight:
-                bold;
+    background:
+        var(--panel2);
 
-            margin-bottom:
-                8px;
+    border-left:
+        3px solid
+        var(--yellow);
 
-        }
+    padding:
+        14px;
 
+    border-radius:
+        0
+        8px
+        8px
+        0;
 
-        .quote {
+    font-size:
+        13px;
+}
 
-            background:
-                var(--panel2);
 
-            border-left:
-                3px solid
-                var(--yellow);
+/* SIMULATOR */
 
-            padding:
-                12px
-                14px;
+.simulator {
 
-            border-radius:
-                0
-                8px
-                8px
-                0;
+    background:
+        var(--panel);
 
-            color:
-                var(--text);
+    border:
+        1px solid
+        var(--border);
 
-            font-size:
-                14px;
+    border-radius:
+        15px;
 
-        }
+    padding:
+        22px;
 
+    text-align:
+        center;
+}
 
-        /* STATS */
+.simulator h3 {
+    margin-bottom: 8px;
+}
 
-        .stats {
+.simulator p {
 
-            display:
-                grid;
+    color:
+        var(--muted);
 
-            grid-template-columns:
-                repeat(
-                    2,
-                    1fr
-                );
+    font-size:
+        12px;
 
-            gap:
-                12px;
+    margin-bottom:
+        18px;
+}
 
-        }
+button {
 
+    border:
+        1px solid
+        var(--border);
 
-        .stat {
+    background:
+        var(--panel2);
 
-            background:
-                var(--panel);
+    color:
+        var(--text);
 
-            border:
-                1px solid
-                var(--border);
+    padding:
+        13px
+        18px;
 
-            border-radius:
-                14px;
+    border-radius:
+        10px;
 
-            padding:
-                20px;
+    cursor:
+        pointer;
 
-        }
+    font-size:
+        13px;
 
+    transition:
+        .2s;
+}
 
-        .stat-label {
+button:hover {
 
-            color:
-                var(--muted);
+    background:
+        #202733;
 
-            font-size:
-                10px;
+    transform:
+        translateY(-2px);
+}
 
-            letter-spacing:
-                1px;
+#simulationResult {
 
-        }
+    margin-top:
+        20px;
 
+    color:
+        var(--muted);
 
-        .stat-value {
+    min-height:
+        25px;
 
-            font-size:
-                28px;
+}
 
-            font-weight:
-                bold;
 
-            margin:
-                5px
-                0;
+/* EVIDENCE */
 
-        }
+.evidence {
 
+    display:
+        grid;
 
-        .stat-description {
+    place-items:
+        center;
 
-            color:
-                var(--muted);
+    min-height:
+        180px;
 
-            font-size:
-                12px;
+    text-align:
+        center;
 
-        }
+    border:
+        1px dashed
+        #3a4554;
 
+    border-radius:
+        15px;
 
-        .red {
+    color:
+        var(--muted);
 
-            color:
-                var(--red);
+    padding:
+        25px;
+}
 
-        }
+.evidence-icon {
 
+    font-size:
+        40px;
 
-        .yellow {
+    margin-bottom:
+        10px;
+}
 
-            color:
-                var(--yellow);
 
-        }
+/* FOOTER */
 
+footer {
 
-        /* EVIDENCE */
+    text-align:
+        center;
 
-        .evidence {
+    margin-top:
+        45px;
 
-            border:
-                1px dashed
-                #3a4554;
+    color:
+        #596474;
 
-            border-radius:
-                15px;
+    font-size:
+        10px;
+}
 
-            padding:
-                35px
-                20px;
 
-            text-align:
-                center;
+/* MOBILE */
 
-            color:
-                var(--muted);
+@media (
+    max-width: 600px
+) {
 
-        }
+    .details {
 
+        grid-template-columns:
+            1fr;
 
-        .evidence-icon {
+    }
 
-            font-size:
-                40px;
+    .stats {
 
-            margin-bottom:
-                10px;
+        grid-template-columns:
+            1fr;
 
-        }
+    }
 
+    .subject-top {
 
-        /* FOOTER */
+        flex-direction:
+            column;
 
-        footer {
+    }
 
-            text-align:
-                center;
+    .stamp {
 
-            margin-top:
-                45px;
+        align-self:
+            flex-start;
 
-            color:
-                #596474;
+    }
 
-            font-size:
-                10px;
+}
 
-        }
-
-
-        /* MOBILE */
-
-        @media (
-            max-width: 600px
-        ) {
-
-            .details {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .stats {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .subject-top {
-
-                flex-direction:
-                    column;
-
-            }
-
-
-            .stamp {
-
-                align-self:
-                    flex-start;
-
-            }
-
-        }
-
-    </style>
+</style>
 
 </head>
 
@@ -757,438 +842,628 @@
 <div class="container">
 
 
-    <div class="topbar">
+<div class="topbar">
 
-        <span>
-            THE BOYS DATABASE™ // FILE #001
-        </span>
+    <span>
+        THE BOYS DATABASE™ // FILE #001
+    </span>
 
-        <span class="status">
-            ● CLASSIFIED
-        </span>
+    <span class="live">
+        ● CLASSIFIED
+    </span>
 
+</div>
+
+
+<a
+    href="index.html"
+    class="back"
+>
+    ← Back to The Boys Database
+</a>
+
+
+<header class="hero">
+
+    <div class="classified">
+        🚨 CLASSIFIED SUBJECT FILE
     </div>
 
+    <h1>
+        KISHORE<br>
+        <span>🇦🇺 AUSTRALIAN</span>
+    </h1>
 
-    <a
-        href="index.html"
-        class="back"
-    >
-        ← Back to The Boys Database
-    </a>
+    <p>
+        Successfully exported from Tamil Nadu.
+    </p>
 
-
-    <header class="hero">
-
-        <div class="classified">
-            🚨 CLASSIFIED SUBJECT FILE
-        </div>
+</header>
 
 
-        <h1>
-            KISHORE<br>
-            <span>🇦🇺 AUSTRALIAN</span>
-        </h1>
+<!-- SUBJECT -->
+
+<section class="subject">
 
 
-        <p>
-            Successfully exported from Tamil Nadu.
-        </p>
-
-    </header>
+<div class="subject-top">
 
 
-    <!-- SUBJECT -->
+<div>
 
-    <section class="subject">
-
-
-        <div class="subject-top">
-
-
-            <div>
-
-                <div class="subject-number">
-                    SUBJECT #001
-                </div>
-
-
-                <div class="subject-name">
-                    Kishore
-                </div>
-
-
-                <div class="subject-title">
-                    (Australian)
-                </div>
-
-            </div>
-
-
-            <div class="stamp">
-                EXPORTED
-            </div>
-
-
-        </div>
-
-
-        <div class="details">
-
-
-            <div class="detail">
-
-                <div class="detail-label">
-                    ORIGIN
-                </div>
-
-                <div class="detail-value">
-                    Tamil Nadu 🇮🇳
-                </div>
-
-            </div>
-
-
-            <div class="detail">
-
-                <div class="detail-label">
-                    CURRENT LOCATION
-                </div>
-
-                <div class="detail-value">
-                    Australia 🇦🇺
-                </div>
-
-            </div>
-
-
-            <div class="detail">
-
-                <div class="detail-label">
-                    THREAT LEVEL
-                </div>
-
-                <div class="detail-value red">
-                    QUESTIONABLE
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-    </section>
-
-
-    <!-- KNOWN OFFENCES -->
-
-    <div class="section-title">
-        KNOWN OFFENCES
+    <div class="subject-id">
+        SUBJECT #001
     </div>
 
-
-    <section class="stats">
-
-
-        <div class="stat">
-
-            <div class="stat-label">
-                🍗 NIGHT FOOD CONSUMPTION
-            </div>
-
-            <div class="stat-value">
-                ∞
-            </div>
-
-            <div class="stat-description">
-                Apparently dinner is never enough.
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-label">
-                🧃 JUICE SHOP ADDICTION
-            </div>
-
-            <div class="stat-value yellow">
-                100%
-            </div>
-
-            <div class="stat-description">
-                Detects juice shops before humans do.
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-label">
-                📢 RANDOM SCREAMS
-            </div>
-
-            <div class="stat-value red">
-                99.9%
-            </div>
-
-            <div class="stat-description">
-                Nearby civilians remain at risk.
-            </div>
-
-        </div>
-
-
-        <div class="stat">
-
-            <div class="stat-label">
-                💨 UNEXPECTED BURPS
-            </div>
-
-            <div class="stat-value red">
-                CLASSIFIED
-            </div>
-
-            <div class="stat-description">
-                Measurement equipment has been damaged.
-            </div>
-
-        </div>
-
-
-    </section>
-
-
-    <!-- INCIDENT REPORTS -->
-
-    <div class="section-title">
-        INCIDENT REPORTS
+    <div class="subject-name">
+        Kishore
     </div>
 
-
-    <section class="incident">
-
-
-        <div class="incident-row">
-
-            <div class="incident-label">
-                INCIDENT #001 // JUICE
-            </div>
-
-
-            <div class="incident-title">
-                The Juice Shop Problem
-            </div>
-
-
-            <div class="quote">
-
-                <strong>Kishore:</strong>
-                "Dei niruthra! Juice shop!"
-
-                <br><br>
-
-                <strong>Group:</strong>
-                "Dei already 2-3 juice kudichitiya da!"
-
-                <br><br>
-
-                <strong>Kishore:</strong>
-                "Adhu vera... idhu vera." 🧃
-
-            </div>
-
-        </div>
-
-
-        <div class="incident-row">
-
-            <div class="incident-label">
-                INCIDENT #002 // FOOD
-            </div>
-
-
-            <div class="incident-title">
-                The Night Food Operation
-            </div>
-
-
-            <div class="quote">
-
-                <strong>Time:</strong>
-                Late night.
-
-                <br><br>
-
-                Everyone:
-                "Thoongalama?"
-
-                <br><br>
-
-                <strong>Kishore:</strong>
-                "Dei sapda polama?" 🍗
-
-                <br><br>
-
-                <strong>Investigation result:</strong>
-                Nobody was surprised.
-
-            </div>
-
-        </div>
-
-
-        <div class="incident-row">
-
-            <div class="incident-label">
-                INCIDENT #003 // BIKE
-            </div>
-
-
-            <div class="incident-title">
-                The Unidentified Sound
-            </div>
-
-
-            <div class="quote">
-
-                Peaceful bike ride.
-
-                <br><br>
-
-                Birds singing. 🌳
-
-                <br>
-
-                Roads quiet. 🛣️
-
-                <br>
-
-                Everyone minding their own business.
-
-                <br><br>
-
-                Suddenly:
-
-                <br><br>
-
-                <strong>
-                    "AAAAAAAAAAAA—"
-                </strong>
-
-                📢
-
-                <br><br>
-
-                Nearby civilians:
-                😳
-
-                <br><br>
-
-                Driver:
-                😐
-
-                <br><br>
-
-                Kishore:
-                😌
-
-            </div>
-
-        </div>
-
-
-        <div class="incident-row">
-
-            <div class="incident-label">
-                INCIDENT #004 // BIOLOGICAL
-            </div>
-
-
-            <div class="incident-title">
-                The Unexpected Sound Effect
-            </div>
-
-
-            <div class="quote">
-
-                🚨 SOUND DETECTED 🚨
-
-                <br><br>
-
-                Group:
-                <strong>"Dei enna da adhu?!"</strong>
-
-                <br><br>
-
-                Investigation concluded:
-
-                <br>
-
-                <strong>Kishore.</strong>
-
-                <br><br>
-
-                Case closed.
-
-            </div>
-
-        </div>
-
-
-    </section>
-
-
-    <!-- EVIDENCE -->
-
-    <div class="section-title">
-        📸 EVIDENCE ARCHIVE
+    <div class="subject-title">
+        (Australian)
     </div>
 
-
-    <section class="evidence">
-
-        <div class="evidence-icon">
-            📂
-        </div>
+</div>
 
 
-        <h3>
-            NO EVIDENCE UPLOADED
-        </h3>
-
-
-        <p style="margin-top:8px;">
-
-            The investigation is still collecting
-            photographic evidence.
-
-            <br>
-
-            More classified material will appear here.
-
-        </p>
-
-    </section>
-
-
-    <footer>
-
-        THE BOYS DATABASE™
-        <br><br>
-
-        SUBJECT #001 // KISHORE
-        <br>
-
-        Department of International Menace
-
-    </footer>
+<div class="stamp">
+    EXPORTED
+</div>
 
 
 </div>
+
+
+<div class="details">
+
+
+<div class="detail">
+
+    <div class="detail-label">
+        ORIGIN
+    </div>
+
+    <div class="detail-value">
+        Tamil Nadu 🇮🇳
+    </div>
+
+</div>
+
+
+<div class="detail">
+
+    <div class="detail-label">
+        CURRENT LOCATION
+    </div>
+
+    <div class="detail-value">
+        Australia 🇦🇺
+    </div>
+
+</div>
+
+
+<div class="detail">
+
+    <div class="detail-label">
+        THREAT LEVEL
+    </div>
+
+    <div class="detail-value red">
+        QUESTIONABLE
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- STATISTICS -->
+
+<div class="section-title">
+    SUBJECT STATISTICS
+</div>
+
+
+<section class="stats">
+
+
+<div class="stat">
+
+    <div class="stat-label">
+        🍗 NIGHT FOOD CONSUMPTION
+    </div>
+
+    <div class="stat-value">
+        ∞
+    </div>
+
+    <div class="stat-description">
+        "Dei sapda polama?"
+    </div>
+
+</div>
+
+
+<div class="stat">
+
+    <div class="stat-label">
+        🧃 JUICE SHOP DETECTION
+    </div>
+
+    <div class="stat-value yellow">
+        100%
+    </div>
+
+    <div class="stat-description">
+        Juice kadai spotted = bike stops.
+    </div>
+
+</div>
+
+
+<div class="stat">
+
+    <div class="stat-label">
+        📢 RANDOM SCREAM PROBABILITY
+    </div>
+
+    <div class="stat-value red">
+        99.9%
+    </div>
+
+    <div class="stat-description">
+        Nearby civilians are advised to remain calm.
+    </div>
+
+</div>
+
+
+<div class="stat">
+
+    <div class="stat-label">
+        💨 UNEXPECTED BURP FREQUENCY
+    </div>
+
+    <div class="stat-value red">
+        ∞
+    </div>
+
+    <div class="stat-description">
+        Scientists have stopped measuring.
+    </div>
+
+</div>
+
+
+</section>
+
+
+<!-- JUICE METER -->
+
+<div class="section-title">
+    🧃 JUICE ADDICTION MONITOR
+</div>
+
+
+<section class="meter-box">
+
+<div class="meter-top">
+
+    <span>
+        CURRENT JUICE THREAT
+    </span>
+
+    <strong class="yellow">
+        CRITICAL
+    </strong>
+
+</div>
+
+
+<div class="meter">
+
+    <div class="meter-fill"></div>
+
+</div>
+
+
+<p
+style="
+color:var(--muted);
+font-size:12px;
+margin-top:12px;
+"
+>
+
+Already drank 2–3 juices?
+
+<br>
+
+**Doesn't matter.**
+
+<br><br>
+
+If another juice shop appears:
+
+<br>
+
+<strong style="color:white;">
+"Dei niruthra!"
+</strong>
+
+🧃
+
+</p>
+
+</section>
+
+
+<!-- INCIDENTS -->
+
+<div class="section-title">
+    📂 INCIDENT REPORTS
+</div>
+
+
+<section class="incident">
+
+
+<div class="incident-row">
+
+    <div class="incident-label">
+        INCIDENT #001 // JUICE
+    </div>
+
+    <div class="incident-title">
+        The Juice Shop Problem
+    </div>
+
+    <div class="quote">
+
+        <strong>Kishore:</strong>
+        "Dei niruthra! Juice shop!"
+
+        <br><br>
+
+        <strong>Group:</strong>
+        "Dei already 2-3 juice kudichitiya da!"
+
+        <br><br>
+
+        <strong>Kishore:</strong>
+        "Adhu vera... idhu vera." 🧃
+
+    </div>
+
+</div>
+
+
+<div class="incident-row">
+
+    <div class="incident-label">
+        INCIDENT #002 // NIGHT
+    </div>
+
+    <div class="incident-title">
+        The Midnight Food Operation
+    </div>
+
+    <div class="quote">
+
+        🕚 <strong>Time:</strong>
+        Late night.
+
+        <br><br>
+
+        Everyone:
+
+        <br>
+
+        "Thoongalama?"
+
+        <br><br>
+
+        Kishore:
+
+        <br>
+
+        <strong>
+            "Dei sapda polama?"
+        </strong>
+
+        🍗
+
+        <br><br>
+
+        Investigation result:
+
+        <strong>
+            Nobody was surprised.
+        </strong>
+
+    </div>
+
+</div>
+
+
+<div class="incident-row">
+
+    <div class="incident-label">
+        INCIDENT #003 // BIKE
+    </div>
+
+    <div class="incident-title">
+        The Unidentified Scream
+    </div>
+
+    <div class="quote">
+
+        Peaceful bike ride. 🏍️
+
+        <br><br>
+
+        Birds singing.
+
+        <br>
+
+        Road completely normal.
+
+        <br><br>
+
+        Suddenly:
+
+        <br><br>
+
+        <strong style="font-size:20px;">
+            "AAAAAAAAAAAA—"
+        </strong>
+
+        📢
+
+        <br><br>
+
+        Nearby people:
+
+        😳
+
+        <br><br>
+
+        Driver:
+
+        😐
+
+        <br><br>
+
+        Kishore:
+
+        😌
+
+    </div>
+
+</div>
+
+
+<div class="incident-row">
+
+    <div class="incident-label">
+        INCIDENT #004 // SOUND EFFECT
+    </div>
+
+    <div class="incident-title">
+        The Unexpected Burp
+    </div>
+
+    <div class="quote">
+
+        🚨 SOUND DETECTED 🚨
+
+        <br><br>
+
+        Group:
+
+        <strong>
+            "Dei enna da adhu?!"
+        </strong>
+
+        <br><br>
+
+        Nearby civilian:
+
+        😳
+
+        <br><br>
+
+        Investigation concluded:
+
+        <br>
+
+        <strong>
+            Kishore.
+        </strong>
+
+        <br><br>
+
+        Case closed.
+
+    </div>
+
+</div>
+
+
+</section>
+
+
+<!-- SIMULATOR -->
+
+<div class="section-title">
+    🏍️ KISHORE BIKE RIDE SIMULATOR
+</div>
+
+
+<section class="simulator">
+
+<h3>
+    Start a completely normal bike ride.
+</h3>
+
+<p>
+    Nothing suspicious should happen.
+    Probably.
+</p>
+
+
+<button
+onclick="startRide()"
+>
+    🏍️ START BIKE RIDE
+</button>
+
+
+<div id="simulationResult">
+
+</div>
+
+</section>
+
+
+<!-- EVIDENCE -->
+
+<div class="section-title">
+    📸 EVIDENCE ARCHIVE
+</div>
+
+
+<section class="evidence">
+
+<div>
+
+    <div class="evidence-icon">
+        📂
+    </div>
+
+    <h3>
+        EVIDENCE PENDING
+    </h3>
+
+    <p
+    style="
+    margin-top:8px;
+    "
+    >
+
+    Photographic evidence will be
+    uploaded here.
+
+    <br>
+
+    The investigation continues.
+
+    </p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+    THE BOYS DATABASE™
+    <br><br>
+
+    SUBJECT #001 // KISHORE
+    <br>
+
+    Department of International Menace
+
+</footer>
+
+
+</div>
+
+
+<script>
+
+
+function startRide() {
+
+
+    const result =
+        document.getElementById(
+            "simulationResult"
+        );
+
+
+    result.innerHTML =
+        "🟢 Bike started...";
+
+
+    setTimeout(() => {
+
+        result.innerHTML =
+            "🟢 Road clear...";
+
+
+    }, 1200);
+
+
+    setTimeout(() => {
+
+        result.innerHTML =
+            "🟢 Everything normal...";
+
+
+    }, 2400);
+
+
+    setTimeout(() => {
+
+        result.innerHTML =
+            "🚨 JUICE SHOP DETECTED 🚨";
+
+
+    }, 3600);
+
+
+    setTimeout(() => {
+
+        result.innerHTML =
+            "Kishore: \"Dei niruthra!\" 🧃";
+
+
+    }, 4800);
+
+
+    setTimeout(() => {
+
+        result.innerHTML =
+            "📢 RANDOM SCREAM DETECTED<br><br>" +
+            "Nearby civilians: 😳<br>" +
+            "Driver: 😐<br>" +
+            "Kishore: 😌";
+
+
+    }, 6200);
+
+
+    setTimeout(() => {
+
+        result.innerHTML =
+            "💨 UNIDENTIFIED SOUND DETECTED<br><br>" +
+            "Investigation concluded:<br>" +
+            "<strong>Kishore.</strong><br><br>" +
+            "🏍️ Ride terminated.";
+
+
+    }, 8000);
+
+}
+
+
+</script>
 
 
 </body>
