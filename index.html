@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kishore: Australia Edition 🇦🇺</title>
+    <title>Kishore // Classified File</title>
 
     <style>
         * {
@@ -13,136 +13,337 @@
             padding: 0;
         }
 
+        :root {
+            --bg: #080a0f;
+            --panel: #11151d;
+            --panel2: #171c25;
+            --border: #29313d;
+            --text: #f2f5f8;
+            --muted: #8c98a8;
+            --red: #ff4d5a;
+            --green: #5cff9d;
+            --yellow: #ffd166;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #0d1117;
-            color: #f0f6fc;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 50% -10%, #202735 0%, transparent 45%),
+                var(--bg);
+            color: var(--text);
             min-height: 100vh;
-            padding: 20px;
+            line-height: 1.5;
         }
 
         .container {
-            max-width: 900px;
+            width: min(920px, calc(100% - 30px));
             margin: auto;
+            padding: 35px 0 60px;
         }
 
-        .warning {
-            text-align: center;
-            color: #ff6b6b;
-            font-size: 13px;
+        /* TOP SECRET BAR */
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid var(--border);
+            background: rgba(17, 21, 29, .85);
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 11px;
+            color: var(--muted);
             letter-spacing: 1px;
-            margin-bottom: 15px;
+            margin-bottom: 35px;
+        }
+
+        .status {
+            color: var(--green);
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .classified {
+            display: inline-block;
+            color: var(--red);
+            border: 1px solid rgba(255, 77, 90, .35);
+            background: rgba(255, 77, 90, .08);
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
         }
 
         h1 {
-            text-align: center;
-            font-size: clamp(32px, 7vw, 60px);
-            margin-bottom: 10px;
+            font-size: clamp(38px, 9vw, 76px);
+            line-height: .95;
+            letter-spacing: -3px;
+            margin-bottom: 18px;
         }
 
-        .subtitle {
-            text-align: center;
-            color: #8b949e;
-            margin-bottom: 30px;
+        h1 span {
+            color: var(--red);
         }
 
-        .box {
-            border: 1px solid #30363d;
+        .hero p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* FILE HEADER */
+
+        .file-header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 20px;
+            border: 1px solid var(--border);
+            background: var(--panel);
             border-radius: 16px;
-            padding: 25px;
+            padding: 22px;
             margin-bottom: 20px;
-            background: #161b22;
         }
 
-        .box h2 {
-            margin-bottom: 15px;
+        .file-title {
+            font-size: 12px;
+            color: var(--muted);
+            letter-spacing: 1px;
+            margin-bottom: 7px;
+        }
+
+        .file-name {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .stamp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--red);
+            color: var(--red);
+            padding: 8px 13px;
+            transform: rotate(-4deg);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* WARNING */
+
+        .warning {
+            border: 1px solid #514625;
+            background: rgba(255, 209, 102, .06);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .warning-title {
+            color: var(--yellow);
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        /* STATS */
+
+        .section-title {
+            font-size: 12px;
+            color: var(--muted);
+            letter-spacing: 1.5px;
+            margin: 32px 0 12px;
         }
 
         .stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 12px;
         }
 
         .stat {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 14px;
             padding: 20px;
-            border-radius: 12px;
-            background: #21262d;
-            border: 1px solid #30363d;
+            transition: .2s;
         }
 
-        .stat-title {
-            color: #8b949e;
-            font-size: 13px;
-            margin-bottom: 8px;
+        .stat:hover {
+            transform: translateY(-3px);
+            border-color: #3a4554;
+        }
+
+        .stat-icon {
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 1px;
         }
 
         .stat-value {
-            font-size: 25px;
+            font-size: 27px;
             font-weight: bold;
+            margin: 5px 0;
         }
 
-        .rules {
-            padding-left: 22px;
+        .red {
+            color: var(--red);
         }
 
-        .rules li {
-            margin-bottom: 12px;
-            line-height: 1.5;
+        .green {
+            color: var(--green);
         }
 
-        .danger {
-            color: #ff7b72;
+        .yellow {
+            color: var(--yellow);
         }
 
-        .button-grid {
+        .stat-description {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* INCIDENT */
+
+        .incident {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .incident-head {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 18px;
+            border-bottom: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .incident-row {
+            display: flex;
+            gap: 15px;
+            padding: 17px 18px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .incident-row:last-child {
+            border-bottom: none;
+        }
+
+        .incident-icon {
+            font-size: 22px;
+        }
+
+        .incident-row strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .incident-row p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 12px;
         }
 
         button {
-            width: 100%;
-            padding: 18px;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            background: #21262d;
-            color: white;
-            cursor: pointer;
-            font-size: 16px;
+            background: var(--panel);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
             text-align: left;
-            transition: 0.2s;
+            cursor: pointer;
+            transition: .2s;
         }
 
         button:hover {
-            background: #30363d;
-            transform: translateY(-2px);
+            background: var(--panel2);
+            transform: translateY(-3px);
+            border-color: #465364;
         }
 
-        .result {
-            text-align: center;
-            border: 1px solid #30363d;
-            border-radius: 16px;
-            padding: 25px;
-            margin-top: 20px;
-            line-height: 1.7;
+        button .button-icon {
+            font-size: 25px;
+            display: block;
+            margin-bottom: 10px;
         }
+
+        button strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        button small {
+            color: var(--muted);
+        }
+
+        /* RESULT */
+
+        #result {
+            margin-top: 20px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--panel);
+            text-align: center;
+            color: var(--muted);
+            min-height: 70px;
+        }
+
+        /* FOOTER */
 
         footer {
             text-align: center;
-            color: #6e7681;
-            font-size: 12px;
-            margin-top: 35px;
+            margin-top: 45px;
+            color: #596474;
+            font-size: 11px;
         }
 
-        @media (max-width: 600px) {
-            .stats,
-            .button-grid {
+        @media (max-width: 650px) {
+
+            .container {
+                padding-top: 20px;
+            }
+
+            .topbar {
+                font-size: 9px;
+            }
+
+            .file-header {
                 grid-template-columns: 1fr;
             }
 
-            .box {
-                padding: 20px;
+            .stamp {
+                width: max-content;
+            }
+
+            .stats,
+            .buttons {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                letter-spacing: -2px;
             }
         }
     </style>
@@ -152,204 +353,300 @@
 
 <div class="container">
 
-    <div class="warning">
-        🚨 CLASSIFIED DEPARTMENT OF INTERNATIONAL MENACE 🚨
+    <div class="topbar">
+        <span>CLASSIFIED FILE // INDIA → AUSTRALIA</span>
+        <span class="status">● SUBJECT ACTIVE</span>
     </div>
 
-    <h1>KISHORE: AUSTRALIA EDITION 🇦🇺</h1>
 
-    <p class="subtitle">
-        Subject successfully exported from India.
-    </p>
+    <header class="hero">
 
+        <div class="classified">
+            🚨 CLASSIFIED // DO NOT TAKE SERIOUSLY
+        </div>
 
-    <div class="box">
-        <h2>⚠️ OFFICIAL WARNING</h2>
+        <h1>
+            KISHORE<br>
+            <span>AUSTRALIA EDITION 🇦🇺</span>
+        </h1>
 
         <p>
-            This website contains classified evidence regarding
-            Kishore's activities in India.
+            A comprehensive investigation into the individual
+            who somehow needed another juice after already drinking three.
         </p>
 
-        <br>
+    </header>
 
-        <p class="danger">
-            Australia has been notified.
-            Proceed at your own risk.
+
+    <section class="file-header">
+
+        <div>
+            <div class="file-title">SUBJECT IDENTIFICATION</div>
+
+            <div class="file-name">
+                KISHORE
+            </div>
+
+            <p style="color:var(--muted); font-size:13px;">
+                Former resident of India.
+                Current destination: Australia.
+            </p>
+        </div>
+
+        <div class="stamp">
+            APPROVED<br>FOR EXPORT
+        </div>
+
+    </section>
+
+
+    <section class="warning">
+
+        <div class="warning-title">
+            ⚠️ OFFICIAL WARNING
+        </div>
+
+        <p>
+            Australian authorities have been informed about the
+            subject's unusual eating habits, uncontrollable juice
+            consumption and unpredictable bike noises.
         </p>
+
+    </section>
+
+
+    <div class="section-title">
+        SUBJECT STATISTICS
     </div>
 
 
-    <div class="stats">
+    <section class="stats">
 
         <div class="stat">
-            <div class="stat-title">
-                🍗 NIGHT FOOD CONSUMPTION
+
+            <div class="stat-icon">🍗</div>
+
+            <div class="stat-label">
+                NIGHT FOOD CONSUMPTION
             </div>
 
             <div class="stat-value">
                 ∞
             </div>
 
-            <p>
-                Every night: "What are we eating?"
-            </p>
+            <div class="stat-description">
+                One does not simply finish eating.
+            </div>
+
         </div>
 
 
         <div class="stat">
-            <div class="stat-title">
-                🧃 JUICE SHOP DETECTOR
+
+            <div class="stat-icon">🧃</div>
+
+            <div class="stat-label">
+                JUICE SHOP ATTRACTOR
             </div>
 
-            <div class="stat-value">
+            <div class="stat-value yellow">
                 100%
             </div>
 
-            <p>
-                Already had 3 juices?
-                STOP THE BIKE.
-            </p>
+            <div class="stat-description">
+                Detects juice shops from kilometres away.
+            </div>
+
         </div>
 
 
         <div class="stat">
-            <div class="stat-title">
-                🏍️ BIKE PASSENGER SAFETY
+
+            <div class="stat-icon">📢</div>
+
+            <div class="stat-label">
+                RANDOM SCREAM PROBABILITY
             </div>
 
-            <div class="stat-value danger">
-                DANGEROUS
+            <div class="stat-value red">
+                99.9%
             </div>
 
-            <p>
-                Random screams and burps detected.
-            </p>
+            <div class="stat-description">
+                Nearby civilians advised to remain calm.
+            </div>
+
         </div>
 
 
         <div class="stat">
-            <div class="stat-title">
-                🎥 YOUTUBER DEPARTMENT
+
+            <div class="stat-icon">💨</div>
+
+            <div class="stat-label">
+                UNEXPECTED BURP FREQUENCY
             </div>
 
-            <div class="stat-value">
-                ACTIVE
+            <div class="stat-value red">
+                CLASSIFIED
             </div>
 
-            <p>
-                The group's unofficial vlogger remains under investigation.
-            </p>
-        </div>
-
-    </div>
-
-
-    <div class="box">
-
-        <h2>📜 OFFICIAL RULES FOR KISHORE</h2>
-
-        <ol class="rules">
-
-            <li>
-                If you see a juice shop,
-                <strong>DO NOT STOP THE BIKE.</strong>
-                You have already had enough.
-            </li>
-
-            <li>
-                If you hear a loud scream while travelling,
-                remain calm.
-                It is probably Kishore.
-            </li>
-
-            <li>
-                If you hear a suspicious burp,
-                increase your distance immediately.
-            </li>
-
-            <li>
-                If it is nighttime,
-                hide all food.
-            </li>
-
-            <li>
-                If the group says "let's go",
-                Kishore will somehow locate a juice shop.
-            </li>
-
-            <li>
-                Do not let the Australian government discover
-                how much this man eats.
-            </li>
-
-        </ol>
-
-    </div>
-
-
-    <div class="box">
-
-        <h2>📂 CLASSIFIED ARCHIVES</h2>
-
-        <div class="button-grid">
-
-            <button onclick="showMessage('📸 EVIDENCE ARCHIVE<br><br>Currently empty.<br><br>Embarrassing photographs will be uploaded soon.')">
-                📸<br>
-                <strong>EVIDENCE ARCHIVE</strong>
-                <br>
-                <small>Photos coming soon...</small>
-            </button>
-
-
-            <button onclick="showMessage('🚨 ACCESS DENIED<br><br>This information is currently classified.<br><br>Try again after Kishore leaves India.')">
-                🚨<br>
-                <strong>CLASSIFIED FILES</strong>
-                <br>
-                <small>Top secret</small>
-            </button>
-
-
-            <button onclick="showMessage('🧃 JUICE SHOP ALERT<br><br>WARNING: Kishore has detected another juice shop.<br><br>STOPPING THE BIKE IS NOT OPTIONAL.')">
-                🧃<br>
-                <strong>JUICE DETECTOR</strong>
-                <br>
-                <small>Extremely sensitive</small>
-            </button>
-
-
-            <button onclick="showMessage('🏍️ BIKE INCIDENT REPORT<br><br>Latest incident:<br><br>Random scream detected.<br>Nearby civilians frightened.<br>Kishore continued travelling normally.')">
-                🏍️<br>
-                <strong>BIKE INCIDENTS</strong>
-                <br>
-                <small>Multiple cases</small>
-            </button>
+            <div class="stat-description">
+                Scientists stopped counting.
+            </div>
 
         </div>
 
+    </section>
+
+
+    <div class="section-title">
+        RECENTLY DOCUMENTED INCIDENTS
     </div>
 
 
-    <div id="result" class="result">
+    <section class="incident">
 
-        🇮🇳 SUBJECT STATUS:
-        <strong>READY FOR EXPORT.</strong>
+        <div class="incident-head">
+            <span>INCIDENT LOG</span>
+            <span>STATUS: OPEN</span>
+        </div>
 
-        <br>
 
-        🇦🇺 AUSTRALIA HAS BEEN NOTIFIED.
+        <div class="incident-row">
 
+            <div class="incident-icon">🧃</div>
+
+            <div>
+                <strong>JUICE SHOP INCIDENT #001</strong>
+
+                <p>
+                    Subject had already consumed multiple juices.
+                    Spotted another juice shop.
+                    Immediately requested: "Stop the bike."
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="incident-row">
+
+            <div class="incident-icon">🏍️</div>
+
+            <div>
+                <strong>BIKE INCIDENT #002</strong>
+
+                <p>
+                    Subject produced an unexpected loud noise
+                    while travelling. Nearby people were visibly
+                    frightened.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="incident-row">
+
+            <div class="incident-icon">🍗</div>
+
+            <div>
+                <strong>NIGHT FOOD INCIDENT #003</strong>
+
+                <p>
+                    Subject once again requested food at night.
+                    Nobody was surprised.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="section-title">
+        CLASSIFIED ARCHIVES
+    </div>
+
+
+    <section class="buttons">
+
+        <button onclick="showMessage(
+            '📸 EVIDENCE ARCHIVE<br><br>Currently under construction.<br><br>Photographic evidence will be added soon. Prepare yourself.'
+        )">
+
+            <span class="button-icon">📸</span>
+
+            <strong>EVIDENCE ARCHIVE</strong>
+
+            <small>
+                Photographic proof
+            </small>
+
+        </button>
+
+
+        <button onclick="showMessage(
+            '🧃 JUICE DETECTOR ACTIVATED<br><br>🚨 JUICE SHOP DETECTED 🚨<br><br>Recommendation: KEEP DRIVING.'
+        )">
+
+            <span class="button-icon">🧃</span>
+
+            <strong>JUICE DETECTOR</strong>
+
+            <small>
+                Extremely sensitive
+            </small>
+
+        </button>
+
+
+        <button onclick="showMessage(
+            '🏍️ BIKE SAFETY SYSTEM<br><br>Passenger: KISHORE<br>Status: DANGEROUS<br><br>Recommendation: Wear a helmet AND ear protection.'
+        )">
+
+            <span class="button-icon">🏍️</span>
+
+            <strong>BIKE SAFETY REPORT</strong>
+
+            <small>
+                Noise hazard detected
+            </small>
+
+        </button>
+
+
+        <button onclick="showMessage(
+            '🎥 YOUTUBER DEPARTMENT<br><br>The group's unofficial Youtuber/Vlogger has been placed under permanent surveillance.<br><br>Reason: Nobody knows.'
+        )">
+
+            <span class="button-icon">🎥</span>
+
+            <strong>YOUTUBER DEPARTMENT</strong>
+
+            <small>
+                Under investigation
+            </small>
+
+        </button>
+
+    </section>
+
+
+    <div id="result">
+        🇮🇳 SUBJECT STATUS: <strong>READY FOR EXPORT.</strong><br>
+        🇦🇺 Australia has been notified.
     </div>
 
 
     <footer>
 
-        Property of the people who had to survive Kishore's
-        juice-shop addiction.
+        DEPARTMENT OF INTERNATIONAL MENACE<br><br>
 
-        <br><br>
-
-        © 2026 Department of International Menace
+        Case No. KISH-2026-AU<br>
+        This website was created because apparently
+        letting Kishore leave normally wasn't enough.
 
     </footer>
 
@@ -362,9 +659,9 @@ function showMessage(message) {
 
     document.getElementById("result").innerHTML = message;
 
-    window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: "smooth"
+    document.getElementById("result").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
     });
 
 }
